@@ -2,8 +2,8 @@
 
 Anki decks for Chinese (zh ⇄ pl), built from CSV files.
 
-Every `decks/<name>.csv` becomes a separate deck, `IJC HSK::<NAME>`
-(the `ijc_` prefix is dropped, e.g. `ijc_hsk1-2.csv` → `IJC HSK::HSK1-2`).
+Every `decks/<name>.csv` becomes a separate deck named `IJC <NAME>`
+(the `ijc_` prefix is dropped, e.g. `ijc_hsk1-2.csv` → `IJC HSK1-2`).
 Each note produces two cards: **Chiński → Polski** and **Polski → Chiński**.
 
 ## Workflow
@@ -32,8 +32,10 @@ history.
 | `SentenceTranslation` | | |
 | `Image` | | File name of an image in `media/` |
 | `Tags` | | Space- or comma-separated; the CSV name is always added as a tag |
+| `Guid` | | Anki note ID, filled by the importer below; leave empty for new words |
 
 UTF-8, comma-, semicolon- or tab-separated (Excel exports work).
+Line breaks inside a (quoted) cell are shown as line breaks on the card.
 
 Auto-filled pinyin uses dictionary tones, so neutral tones come out as full
 tones (e.g. 谢谢 → `xièxiè` instead of `xièxie`). The build log lists every
@@ -44,6 +46,19 @@ auto-filled value. If one is wrong, write the correct one into the CSV.
 The build **fails** on missing required fields, duplicate words or missing
 images, and **warns** when a sentence doesn't contain the word or the sentence
 pinyin doesn't contain the word pinyin.
+
+## Importing notes from Anki
+
+Export from Anki with *Notes in Plain Text*, with the unique identifier,
+notetype, deck and tags included, then:
+
+```bash
+python tools/import_anki_export.py export.txt decks/ijc_hsk1-1.csv
+```
+
+HTML is converted to plain text and Anki's GUID goes into the `Guid` column, so
+the generated deck updates those notes instead of duplicating them. Words
+already in the CSV are skipped (`--replace` overwrites the whole file).
 
 ## Local build
 
@@ -61,6 +76,7 @@ decks/       one CSV per deck
 media/       images referenced from the Image column
 templates/   card HTML, CSS and the shared script (highlighting + stroke order)
 build.py     CSV → .apkg
+tools/       helpers (Anki export → CSV)
 ```
 
 `dist/ijc-hsk-all.apkg` contains all decks in one file.

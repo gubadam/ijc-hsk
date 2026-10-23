@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build Anki decks from CSV files.
 
-Every decks/<name>.csv becomes its own deck ("IJC HSK::<NAME>") and its own
+Every decks/<name>.csv becomes its own deck (ijc_hsk1-1.csv -> "IJC HSK1-1") and its own
 dist/<name>.apkg. dist/ijc-hsk-all.apkg contains all decks at once.
 
 Usage:
@@ -26,7 +26,7 @@ TEMPLATES_DIR = ROOT / "templates"
 MEDIA_DIR = ROOT / "media"
 DIST_DIR = ROOT / "dist"
 
-DECK_PARENT = "IJC HSK"
+DECK_PREFIX = "IJC"
 ALL_PACKAGE = "ijc-hsk-all.apkg"
 
 # Never change these IDs: Anki uses them to recognise the note type and the
@@ -44,7 +44,7 @@ FIELDS = [
     "Image",
 ]
 REQUIRED = ["Definition", "WordSimplified"]
-OPTIONAL_EXTRA = ["Tags"]
+OPTIONAL_EXTRA = ["Tags", "Guid"]
 
 HAN = re.compile("[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
 SPACE_BEFORE_PUNCT = re.compile(r"\s+([，。！？、；：,.!?;:)）」』])")
@@ -79,7 +79,7 @@ def deck_name(csv_path: Path) -> str:
     stem = csv_path.stem
     if stem.lower().startswith("ijc_"):
         stem = stem[4:]
-    return f"{DECK_PARENT}::{stem.upper()}"
+    return f"{DECK_PREFIX} {stem.upper()}"
 
 
 def stable_id(text: str) -> int:
@@ -135,7 +135,7 @@ class Report:
         return f"{path.relative_to(ROOT)}:{line}"
 
 
-def load_deck(csv_path: Path, model, report: Report, seen: dict):
+def load_deck(csv_path: Path, model, report: Report, seen: dict, seen_guids: dict):
     deck = genanki.Deck(stable_id(deck_name(csv_path)), deck_name(csv_path))
     media = set()
     deck_tag = csv_path.stem.replace(" ", "_")
@@ -162,10 +162,15 @@ def load_deck(csv_path: Path, model, report: Report, seen: dict):
             if not word or not row["Definition"]:
                 report.errors.append(f"{loc}: Definition and WordSimplified are required")
                 continue
+            if row["Guid"] and row["Guid"] in seen_guids:
+                report.errors.append(f"{loc}: duplicate Guid '{row['Guid']}' (first at {seen_guids[row['Guid']]})")
+                continue
             if word in seen:
                 report.errors.append(f"{loc}: duplicate word '{word}' (first at {seen[word]})")
                 continue
             seen[word] = loc
+            if row["Guid"]:
+                seen_guids[row["Guid"]] = loc
 
             # auto-fill pinyin
             if not row["WordPinyin"] and HAN.search(word):
@@ -195,13 +200,15 @@ def load_deck(csv_path: Path, model, report: Report, seen: dict):
             elif image:
                 row["Image"] = image  # raw HTML, keep as-is
 
-            fields = [row[f] if f == "Image" else html.escape(row[f], quote=False) for f in FIELDS]
+            fields = [row[f] if f == "Image" else html.escape(row[f], quote=False).replace("\n", "<br>")
+                      for f in FIELDS]
             tags = [deck_tag] + row["Tags"].replace(",", " ").split()
             deck.add_note(genanki.Note(
                 model=model,
                 fields=fields,
                 tags=tags,
-                guid=genanki.guid_for(GUID_NAMESPACE, word),
+                # GUID from an Anki export keeps matching your existing notes
+                guid=row["Guid"] or genanki.guid_for(GUID_NAMESPACE, word),
             ))
     return deck, media
 
@@ -219,7 +226,8 @@ def main() -> int:
     model = build_model()
     report = Report()
     seen: dict = {}
-    built = [(p, *load_deck(p, model, report, seen)) for p in csv_files]
+    seen_guids: dict = {}
+    built = [(p, *load_deck(p, model, report, seen, seen_guids)) for p in csv_files]
 
     GHA = "GITHUB_ACTIONS" in os.environ
     for msg in report.filled:
