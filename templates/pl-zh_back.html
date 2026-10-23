@@ -1,0 +1,17 @@
+{{FrontSide}}
+<hr id="answer">
+
+<div class="word hanzi" data-strokes="{{text:WordSimplified}}">{{WordSimplified}}</div>
+<div class="pinyin word-pinyin">{{WordPinyin}}</div>
+
+{{#SentenceSimplified}}
+<div class="section box">
+  <div class="sentence hanzi" data-hl="{{text:WordSimplified}}">{{SentenceSimplified}}</div>
+  {{#SentencePinyin}}<div class="pinyin" data-hl="{{text:WordPinyin}}">{{SentencePinyin}}</div>{{/SentencePinyin}}
+  {{#SentenceTranslation}}<div class="translation">{{SentenceTranslation}}</div>{{/SentenceTranslation}}
+</div>
+{{/SentenceSimplified}}
+
+{{#Image}}<div class="section image">{{Image}}</div>{{/Image}}
+
+<!-- SCRIPT -->

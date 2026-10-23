@@ -1,0 +1,78 @@
+<script>
+(function () {
+  // --- highlight the word in the sentence and its pinyin ---
+  function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  document.querySelectorAll('[data-hl]:not([data-done])').forEach(function (el) {
+    el.setAttribute('data-done', '');
+    var w = (el.getAttribute('data-hl') || '').normalize('NFC').replace(/\s+/g, '');
+    if (!w) return;
+    var re = new RegExp(Array.from(w).map(esc).join('\\s*'), 'giu');
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function (node) {
+      var text = node.nodeValue.normalize('NFC'), last = 0, m;
+      var frag = document.createDocumentFragment();
+      re.lastIndex = 0;
+      while ((m = re.exec(text))) {
+        if (!m[0]) { re.lastIndex++; continue; }
+        frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'hl'; span.textContent = m[0];
+        frag.appendChild(span);
+        last = re.lastIndex;
+      }
+      if (!last) return;
+      frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  });
+
+  // --- swap the word for a stroke-order animation (Hanzi Writer) ---
+  function initStrokes() {
+    var cs = getComputedStyle(document.querySelector('.card') || document.body);
+    var fg = cs.getPropertyValue('--fg').trim() || '#222';
+    var accent = cs.getPropertyValue('--accent').trim() || '#c0392b';
+    var line = cs.getPropertyValue('--line').trim() || '#ddd';
+
+    document.querySelectorAll('[data-strokes]:not([data-done])').forEach(function (el) {
+      el.setAttribute('data-done', '');
+      var chars = Array.from(el.getAttribute('data-strokes') || '')
+        .filter(function (c) { return /\p{Script=Han}/u.test(c); });
+      if (!chars.length) return;
+
+      // load data for all characters first; swap only when everything loaded
+      Promise.all(chars.map(function (c) { return HanziWriter.loadCharacterData(c); }))
+        .then(function (data) {
+          el.textContent = '';
+          el.classList.add('strokes');
+          var writers = chars.map(function (ch, i) {
+            var box = document.createElement('div');
+            box.className = 'stroke-char';
+            el.appendChild(box);
+            var w = HanziWriter.create(box, ch, {
+              width: 130, height: 130, padding: 8,
+              showCharacter: false, showOutline: true,
+              strokeColor: fg, radicalColor: accent, outlineColor: line,
+              strokeAnimationSpeed: 1.2, delayBetweenStrokes: 200,
+              charDataLoader: function (_c, onLoad) { onLoad(data[i]); }
+            });
+            box.addEventListener('click', function () { w.animateCharacter(); });
+            return w;
+          });
+          (function play(k) {
+            if (k >= writers.length) return;
+            writers[k].animateCharacter({ onComplete: function () { play(k + 1); } });
+          })(0);
+        })
+        .catch(function () { /* offline or missing character: keep the plain word */ });
+    });
+  }
+
+  if (!document.querySelector('[data-strokes]')) return;
+  if (window.HanziWriter) { initStrokes(); return; }
+  var s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/hanzi-writer@3/dist/hanzi-writer.min.js';
+  s.onload = initStrokes;
+  document.head.appendChild(s);
+})();
+</script>

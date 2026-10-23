@@ -1,0 +1,56 @@
+name: Build Anki decks
+
+on:
+  push:
+    branches: [main]
+    paths: ["decks/**", "templates/**", "media/**", "build.py", "requirements.txt", ".github/workflows/build.yml"]
+  pull_request:
+    paths: ["decks/**", "templates/**", "media/**", "build.py", "requirements.txt"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-decks
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Validate
+        if: github.event_name == 'pull_request'
+        run: python build.py --check
+
+      - name: Build
+        if: github.event_name != 'pull_request'
+        run: python build.py
+
+      - uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          name: anki-decks
+          path: dist/*.apkg
+
+      # Rolling "latest" release: always the newest decks, downloadable from
+      # any device without logging into Actions.
+      - name: Publish "latest" release
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --yes --cleanup-tag 2>/dev/null || true
+          gh release create latest dist/*.apkg \
+            --title "Latest decks" \
+            --notes "Built from ${GITHUB_SHA::7}. Import the .apkg files into Anki (File → Import)." \
+            --latest
