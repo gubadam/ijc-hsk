@@ -46,11 +46,22 @@ edit**, or your push will be rejected.
 | `SentencePinyin` | | Auto-filled when empty |
 | `SentenceTranslation` | | |
 | `Image` | | File name of an image in `media/` |
-| `Tags` | | Space- or comma-separated; the CSV name is always added as a tag |
+| `Tags` | | Space- or comma-separated; the CSV name is always added as a tag. Include a part-of-speech tag (see below) |
 | `Guid` | | Anki note ID; leave empty for new words, CI fills it in. Never edit or copy it |
 
 UTF-8, comma-, semicolon- or tab-separated (Excel exports work).
 Line breaks inside a (quoted) cell are shown as line breaks on the card.
+
+### Part-of-speech tags
+
+Every word gets one `pos::` tag, so Anki groups them under **pos** in the
+Browser sidebar and you can study by type (search `tag:pos::verb`):
+
+`pos::noun`, `pos::verb`, `pos::adjective`, `pos::adverb`, `pos::pronoun`,
+`pos::numeral`, `pos::measure-word`, `pos::particle`, `pos::preposition`,
+`pos::conjunction`, `pos::interjection`, `pos::phrase`
+
+A word that works as two parts of speech can have two tags.
 
 Auto-filled pinyin uses dictionary tones, so neutral tones come out as full
 tones (e.g. 谢谢 → `xièxiè` instead of `xièxie`). The build log lists every

@@ -1,24 +1,24 @@
 Definition,WordSimplified,WordPinyin,SentenceSimplified,SentencePinyin,SentenceTranslation,Image,Tags,Guid
-0,零,líng,,,,,20261020 numerals,PopR*:Hb$b
-1,一,yī,,,,,20261020 numerals,Einjw)NR95
-2,二,èr,,,,,20261020 numerals,sQ/@p5@]tx
-3,三,sān,,,,,20261020 numerals,"O>j`M*e,g3"
-4,四,sì,,,,,20261020 numerals,EaV0}d6]dn
-5,五,wǔ,,,,,20261020 numerals,BE_CtcG>[6
-6,六,liù,,,,,20261020 numerals,whk+7FZcJ`
-7,七,qī,,,,,20261020 numerals,LSyGjRGKlY
-8,八,bā,,,,,20261020 numerals,N+i<hrQP~q
-9,九,jiǔ,,,,,20261020 numerals,qUBOPX-sL3
-10,十,shí,,,,,20261020 numerals,H|eiDO+=0L
-Ty,你,nǐ,你好。,nǐ hǎo,Cześć,,20261022,c6d=>:Ymy8
-Ty (forma grzecznościowa),您,nín,您好。,nín hǎo,Cześć,,20261022,ydM3@dX!jt
-Dobrze; dobry,好,hǎo,,,,,20261022,m{+TjFO%;{
-Ja,我,wǒ,,,,,20261022,oo>!8c-swU
-Bardzo,很,hěn,我很好。,wǒ hěn hǎo,Mam się dobrze.,,20261022,fJcw:!bM;.
-Też,也,yě,我也很好。,wǒ yě hěn hǎo,Też mam się dobrze.,,20261022,yG*O$?W]u#
+0,零,líng,,,,,20261020 pos::numeral,PopR*:Hb$b
+1,一,yī,,,,,20261020 pos::numeral,Einjw)NR95
+2,二,èr,,,,,20261020 pos::numeral,sQ/@p5@]tx
+3,三,sān,,,,,20261020 pos::numeral,"O>j`M*e,g3"
+4,四,sì,,,,,20261020 pos::numeral,EaV0}d6]dn
+5,五,wǔ,,,,,20261020 pos::numeral,BE_CtcG>[6
+6,六,liù,,,,,20261020 pos::numeral,whk+7FZcJ`
+7,七,qī,,,,,20261020 pos::numeral,LSyGjRGKlY
+8,八,bā,,,,,20261020 pos::numeral,N+i<hrQP~q
+9,九,jiǔ,,,,,20261020 pos::numeral,qUBOPX-sL3
+10,十,shí,,,,,20261020 pos::numeral,H|eiDO+=0L
+Ty,你,nǐ,你好。,nǐ hǎo,Cześć,,20261022 pos::pronoun,c6d=>:Ymy8
+Ty (forma grzecznościowa),您,nín,您好。,nín hǎo,Cześć,,20261022 pos::pronoun,ydM3@dX!jt
+Dobrze; dobry,好,hǎo,,,,,20261022 pos::adjective,m{+TjFO%;{
+Ja,我,wǒ,,,,,20261022 pos::pronoun,oo>!8c-swU
+Bardzo,很,hěn,我很好。,wǒ hěn hǎo,Mam się dobrze.,,20261022 pos::adverb,fJcw:!bM;.
+Też,也,yě,我也很好。,wǒ yě hěn hǎo,Też mam się dobrze.,,20261022 pos::adverb,yG*O$?W]u#
 "A……?
-Wyraża pytanie zwrotne, dodawana na końcu zdania.",呢,ne,你呢,nǐ ne?,A ty?,,20261022,bb6W5Cg#6A
+Wyraża pytanie zwrotne, dodawana na końcu zdania.",呢,ne,你呢,nǐ ne?,A ty?,,20261022 pos::particle,bb6W5Cg#6A
 "Czy……?
-Tworzy pytania typu „tak/nie”, dodawana na końcu zdania.",吗,ma,你好吗？,nǐ hǎo ma?,Jak się masz?,,20261022,H5Lq7XZO^X
-74,七十四,qī shí sì,,,,,20261022 numerals,C{V+K=#y*f
-50,五十,wǔ shí,,,,,20261022 numerals,M.l&T7m7k-
+Tworzy pytania typu „tak/nie”, dodawana na końcu zdania.",吗,ma,你好吗？,nǐ hǎo ma?,Jak się masz?,,20261022 pos::particle,H5Lq7XZO^X
+74,七十四,qī shí sì,,,,,20261022 pos::numeral,C{V+K=#y*f
+50,五十,wǔ shí,,,,,20261022 pos::numeral,M.l&T7m7k-
