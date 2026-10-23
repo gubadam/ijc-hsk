@@ -29,9 +29,11 @@ Preview the notes locally:
 python tools/changelog.py --since "$(git tag --list 'v*' --sort=-v:refname | head -n1)"
 ```
 
-Re-importing is safe: notes are identified by `WordSimplified`, so fixing a
-typo in a definition or sentence updates the existing card and keeps its review
-history.
+Re-importing is safe: every note has a stable GUID, so editing a word updates
+the existing card in Anki and keeps its review history. For new words you don't
+need to fill in `Guid`: on push to `main` the workflow stores one in the CSV and
+commits it back ("Fill GUIDs for new words"). **Run `git pull` before your next
+edit**, or your push will be rejected.
 
 ## CSV format
 
@@ -45,7 +47,7 @@ history.
 | `SentenceTranslation` | | |
 | `Image` | | File name of an image in `media/` |
 | `Tags` | | Space- or comma-separated; the CSV name is always added as a tag |
-| `Guid` | | Anki note ID, filled by the importer below; leave empty for new words |
+| `Guid` | | Anki note ID; leave empty for new words, CI fills it in. Never edit or copy it |
 
 UTF-8, comma-, semicolon- or tab-separated (Excel exports work).
 Line breaks inside a (quoted) cell are shown as line breaks on the card.
@@ -80,6 +82,7 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python build.py          # → dist/*.apkg
 python build.py --check  # validate only
+python build.py --write-guids  # store GUIDs of new words locally (what CI does)
 ```
 
 ## Layout

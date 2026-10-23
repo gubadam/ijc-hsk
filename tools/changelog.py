@@ -56,8 +56,11 @@ def decks_now() -> dict:
 
 
 def label(word: str, row: dict) -> str:
+    parts = [word]
+    if row["WordPinyin"]:
+        parts.append(row["WordPinyin"])
     d = row["Definition"].split("\n")[0]
-    return f"{word} ({d})" if d else word
+    return " ".join(parts) + (f" — {d}" if d else "")
 
 
 def deck_section(name: str, old: dict | None, new: dict | None) -> list[str]:
@@ -75,10 +78,12 @@ def deck_section(name: str, old: dict | None, new: dict | None) -> list[str]:
     head = f"### {title} — new deck" if not old else f"### {title}"
     out = [f"{head} ({len(new)} words)", ""]
     if added:
-        out.append(f"**Added ({len(added)}):** " + ", ".join(label(w, new[w]) for w in added))
+        out.append(f"**Added ({len(added)}):**")
+        out += [f"- {label(w, new[w])}" for w in added]
         out.append("")
     if removed:
-        out.append(f"**Removed ({len(removed)}):** " + ", ".join(label(w, old[w]) for w in removed))
+        out.append(f"**Removed ({len(removed)}):**")
+        out += [f"- {label(w, old[w])}" for w in removed]
         out.append("")
     if changed:
         out.append(f"**Changed ({len(changed)}):**")
@@ -119,7 +124,8 @@ def main() -> int:
     changed = bool(lines)
 
     if args.since:
-        commits = git("log", "--format=- %s (%h)", f"{args.since}..HEAD").strip()
+        commits = git("log", "--format=- %s (%h)", "--invert-grep", "--grep=^Fill GUIDs",
+                      f"{args.since}..HEAD").strip()
         if commits:
             lines += ["## Commits", "", commits, ""]
         lines.insert(0, f"Changes since `{args.since}`.\n")

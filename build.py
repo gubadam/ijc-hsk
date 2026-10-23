@@ -5,8 +5,9 @@ Every decks/<name>.csv becomes its own deck (ijc_hsk1-1.csv -> "IJC HSK1-1") and
 dist/<name>.apkg. dist/ijc-hsk-all.apkg contains all decks at once.
 
 Usage:
-    python build.py            # validate + build
-    python build.py --check    # validate only (used on pull requests)
+    python build.py                 # validate + build
+    python build.py --check         # validate only (used on pull requests)
+    python build.py --write-guids   # also store GUIDs of new words in the CSVs
 """
 import argparse
 import csv
@@ -125,6 +126,39 @@ def sniff_reader(f):
     return csv.DictReader(f, dialect=dialect)
 
 
+def write_guids(csv_path: Path) -> list:
+    """Fill empty Guid cells (adding the column if needed). Returns the words filled.
+
+    The value is the same one the build would derive from the word, so notes that
+    were already released keep their identity; afterwards the word can be edited
+    without Anki treating it as a new note.
+    """
+    with csv_path.open(encoding="utf-8-sig", newline="") as f:
+        reader = sniff_reader(f)
+        delimiter = reader.reader.dialect.delimiter
+        header = [h.strip() for h in (reader.fieldnames or [])]
+        reader.fieldnames = header
+        rows = list(reader)
+
+    filled = []
+    added_column = "Guid" not in header
+    if added_column:
+        header.append("Guid")
+    for row in rows:
+        word = (row.get("WordSimplified") or "").strip()
+        if word and not (row.get("Guid") or "").strip():
+            row["Guid"] = genanki.guid_for(GUID_NAMESPACE, word)
+            filled.append(word)
+
+    if filled or (added_column and rows):
+        with csv_path.open("w", encoding="utf-8", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=header, delimiter=delimiter,
+                               lineterminator="\n", extrasaction="ignore")
+            w.writeheader()
+            w.writerows(rows)
+    return filled
+
+
 # ------------------------------------------------------------------ build ---
 
 class Report:
@@ -216,12 +250,19 @@ def load_deck(csv_path: Path, model, report: Report, seen: dict, seen_guids: dic
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true", help="validate only, don't write packages")
+    ap.add_argument("--write-guids", action="store_true",
+                    help="store GUIDs of words that don't have one yet in the CSVs")
     args = ap.parse_args()
 
     csv_files = sorted(DECKS_DIR.glob("*.csv"))
     if not csv_files:
         print("No CSV files in decks/", file=sys.stderr)
         return 1
+
+    if args.write_guids:
+        for p in csv_files:
+            for word in write_guids(p):
+                print(f"  guid     {p.relative_to(ROOT)}: {word}")
 
     model = build_model()
     report = Report()

@@ -36,7 +36,18 @@ jobs:
 
       - name: Build
         if: github.event_name != 'pull_request'
-        run: python build.py
+        run: python build.py ${{ github.ref == 'refs/heads/main' && '--write-guids' || '' }}
+
+      # New words get their GUID stored in the CSV, so later edits to the word
+      # itself don't make Anki treat it as a new note.
+      - name: Commit new GUIDs
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          if git diff --quiet -- decks; then echo "No new GUIDs."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Fill GUIDs for new words [skip ci]" -- decks
+          git push origin HEAD:main
 
       - name: Changelog since previous release
         id: changelog
@@ -61,7 +72,7 @@ jobs:
         run: |
           tag="v$(date -u +%Y.%m.%d).${GITHUB_RUN_NUMBER}"
           gh release create "$tag" dist/*.apkg \
-            --target "$GITHUB_SHA" \
+            --target "$(git rev-parse HEAD)" \
             --title "Decks $(date -u +%Y-%m-%d) (#${GITHUB_RUN_NUMBER})" \
             --notes-file changelog.md \
             --latest
