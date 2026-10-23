@@ -3,23 +3,25 @@ name: Build Anki decks
 on:
   push:
     branches: [main]
-    paths: ["decks/**", "templates/**", "media/**", "build.py", "requirements.txt", ".github/workflows/build.yml"]
+    paths: ["decks/**", "templates/**", "media/**", "build.py", "requirements.txt", "tools/**", ".github/workflows/build.yml"]
   pull_request:
-    paths: ["decks/**", "templates/**", "media/**", "build.py", "requirements.txt"]
+    paths: ["decks/**", "templates/**", "media/**", "build.py", "requirements.txt", "tools/**"]
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: build-decks
-  cancel-in-progress: true
+  group: build-decks-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0   # full history + tags, needed for the changelog
 
       - uses: actions/setup-python@v6
         with:
@@ -36,21 +38,38 @@ jobs:
         if: github.event_name != 'pull_request'
         run: python build.py
 
+      - name: Changelog since previous release
+        id: changelog
+        run: |
+          prev=$(git tag --list 'v*' --sort=-v:refname | head -n1)
+          echo "prev=$prev" >> "$GITHUB_OUTPUT"
+          python tools/changelog.py --since "$prev" --output changelog.md
+          cat changelog.md >> "$GITHUB_STEP_SUMMARY"
+
       - uses: actions/upload-artifact@v5
         if: github.event_name != 'pull_request'
         with:
           name: anki-decks
           path: dist/*.apkg
 
-      # Rolling "latest" release: always the newest decks, downloadable from
-      # any device without logging into Actions.
-      - name: Publish "latest" release
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      - name: Publish release
+        if: >-
+          github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+          && (steps.changelog.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release delete latest --yes --cleanup-tag 2>/dev/null || true
-          gh release create latest dist/*.apkg \
-            --title "Latest decks" \
-            --notes "Built from ${GITHUB_SHA::7}. Import the .apkg files into Anki (File → Import)." \
+          tag="v$(date -u +%Y.%m.%d).${GITHUB_RUN_NUMBER}"
+          gh release create "$tag" dist/*.apkg \
+            --target "$GITHUB_SHA" \
+            --title "Decks $(date -u +%Y-%m-%d) (#${GITHUB_RUN_NUMBER})" \
+            --notes-file changelog.md \
             --latest
+
+      # One-off cleanup of the old rolling "latest" release; safe to delete
+      # this step once it has run.
+      - name: Remove legacy "latest" release
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release delete latest --yes --cleanup-tag 2>/dev/null || true

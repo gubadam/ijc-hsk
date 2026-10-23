@@ -10,11 +10,24 @@ Each note produces two cards: **Chiński → Polski** and **Polski → Chiński*
 
 1. Add rows to a CSV in `decks/` (or create a new CSV for a new deck).
 2. Push to `main`.
-3. GitHub Actions validates the data, builds the decks and publishes them on the
-   **[latest release](../../releases/tag/latest)**.
+3. GitHub Actions validates the data, builds the decks and publishes a new
+   release (`v<date>.<run>`), so every previous version stays available under
+   **[Releases](../../releases)**. The newest one is always at
+   **[releases/latest](../../releases/latest)**.
 4. Download the `.apkg` and import it in Anki (*File → Import*).
 
-Pull requests only run validation (`python build.py --check`).
+Release notes are generated from the data, compared with the previous release:
+words added, removed or changed per deck (and which fields changed), template
+and build changes, and the commit messages since then. A push that changes
+nothing in the decks, templates or build doesn't create a release.
+
+Pull requests only run validation, plus a changelog preview in the run summary.
+
+Preview the notes locally:
+
+```bash
+python tools/changelog.py --since "$(git tag --list 'v*' --sort=-v:refname | head -n1)"
+```
 
 Re-importing is safe: notes are identified by `WordSimplified`, so fixing a
 typo in a definition or sentence updates the existing card and keeps its review
@@ -76,7 +89,7 @@ decks/       one CSV per deck
 media/       images referenced from the Image column
 templates/   card HTML, CSS and the shared script (highlighting + stroke order)
 build.py     CSV → .apkg
-tools/       helpers (Anki export → CSV)
+tools/       helpers (Anki export → CSV, release notes)
 ```
 
 `dist/ijc-hsk-all.apkg` contains all decks in one file.
