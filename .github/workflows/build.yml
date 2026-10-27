@@ -73,6 +73,6 @@ jobs:
           tag="v$(date -u +%Y.%m.%d).${GITHUB_RUN_NUMBER}"
           gh release create "$tag" dist/*.apkg \
             --target "$(git rev-parse HEAD)" \
-            --title "Decks $(date -u +%Y-%m-%d) (#${GITHUB_RUN_NUMBER})" \
+            --title "$(date -u +%Y-%m-%d) (#${GITHUB_RUN_NUMBER})" \
             --notes-file changelog.md \
             --latest
