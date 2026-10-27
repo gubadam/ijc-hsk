@@ -1,5 +1,68 @@
 <script>
 (function () {
+  // --- TTS fallback for AnkiWeb (it does not support Anki TTS tags and shows the raw
+  //     [anki:tts]…[/anki:tts] text). Desktop/mobile Anki never get here,
+  //     because they turn the tags into play buttons before the card renders.
+  (function () {
+    var TAG = /\[anki:tts([^\]]*)\]([\s\S]*?)\[\/anki:tts\]/g;
+    var card = document.querySelector('.card') || document.body;
+    var walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT), nodes = [];
+    while (walker.nextNode()) {
+      var n = walker.currentNode, tag = n.parentNode && n.parentNode.nodeName;
+      if (tag === 'SCRIPT' || tag === 'STYLE') continue;  // incl. this script's own source
+      if (n.nodeValue.indexOf('[anki:tts') !== -1) nodes.push(n);
+    }
+    if (!nodes.length) return;
+    var synth = window.speechSynthesis && window.SpeechSynthesisUtterance ? window.speechSynthesis : null;
+    var texts = [];
+
+    function speak(text, lang) {
+      if (!synth) return;
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = lang;
+      var v = synth.getVoices().filter(function (x) { return x.lang.replace('_', '-') === lang; })[0];
+      if (v) u.voice = v;
+      u.rate = 0.9;
+      try { synth.speak(u); } catch (e) { /* speech not available */ }
+    }
+    function button(text, lang) {
+      var a = document.createElement('a');
+      a.href = '#'; a.className = 'replay-button soundLink';
+      a.innerHTML = '<svg class="playImage" viewBox="0 0 64 64" version="1.1">' +
+        '<circle cx="32" cy="32" r="29"></circle>' +
+        '<path d="M56.502,32.301l-37.502,20.101l0.329,-40.804l37.173,20.703Z"></path></svg>';
+      a.addEventListener('click', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        if (synth) synth.cancel();
+        speak(text, lang);
+      });
+      if (!synth) a.style.display = 'none';
+      return a;
+    }
+
+    nodes.forEach(function (node) {
+      var text = node.nodeValue, last = 0, m, frag = document.createDocumentFragment();
+      TAG.lastIndex = 0;
+      while ((m = TAG.exec(text))) {
+        var lm = /lang=([A-Za-z_-]+)/.exec(m[1]);
+        var lang = (lm ? lm[1] : 'zh_CN').replace('_', '-');
+        frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        frag.appendChild(button(m[2], lang));
+        texts.push([m[2], lang]);
+        last = TAG.lastIndex;
+      }
+      // drop any stray closing tag left over
+      frag.appendChild(document.createTextNode(text.slice(last).replace(/\[\/?anki:tts[^\]]*\]/g, '')));
+      node.parentNode.replaceChild(frag, node);
+    });
+
+    // autoplay like desktop Anki does (browsers may block it; the buttons still work)
+    if (synth) {
+      synth.cancel();
+      texts.forEach(function (t) { speak(t[0], t[1]); });
+    }
+  })();
+
   // --- highlight the word in the sentence and its pinyin ---
   function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
   document.querySelectorAll('[data-hl]:not([data-done])').forEach(function (el) {
