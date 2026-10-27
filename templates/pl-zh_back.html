@@ -2,11 +2,11 @@
 <hr id="answer">
 
 <div class="word hanzi" data-strokes="{{text:WordSimplified}}">{{WordSimplified}}</div>
-<div class="pinyin word-pinyin">{{WordPinyin}}</div>
+<div class="pinyin word-pinyin">{{WordPinyin}} {{tts zh_CN:WordSimplified}}</div>
 
 {{#SentenceSimplified}}
 <div class="section box">
-  <div class="sentence hanzi" data-hl="{{text:WordSimplified}}">{{SentenceSimplified}}</div>
+  <div class="sentence hanzi"><span data-hl="{{text:WordSimplified}}">{{SentenceSimplified}}</span> {{tts zh_CN:SentenceSimplified}}</div>
   {{#SentencePinyin}}<div class="pinyin" data-hl="{{text:WordPinyin}}">{{SentencePinyin}}</div>{{/SentencePinyin}}
   {{#SentenceTranslation}}<div class="translation">{{SentenceTranslation}}</div>{{/SentenceTranslation}}
 </div>

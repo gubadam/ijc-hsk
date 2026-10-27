@@ -50,3 +50,9 @@ hr#answer {
     linear-gradient(var(--line), var(--line)) center / 100% 1px no-repeat,
     linear-gradient(var(--line), var(--line)) center / 1px 100% no-repeat;
 }
+
+/* play buttons from {{tts}} (Anki renders them as .replay-button) */
+.replay-button { display: inline-block; vertical-align: middle; margin-left: 4px; }
+.replay-button svg { width: 26px; height: 26px; }
+.replay-button svg circle { fill: transparent; stroke: var(--muted); }
+.replay-button svg path { fill: var(--fg); }
