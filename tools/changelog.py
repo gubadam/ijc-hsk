@@ -121,6 +121,7 @@ def main() -> int:
         lines += ["## Decks", ""] + deck_lines
     lines += path_section("Card templates", args.since, STYLE_PATHS)
     lines += path_section("Build", args.since, BUILD_PATHS)
+    lines += path_section("Anki add-on", args.since, ["addon"])
     changed = bool(lines)
 
     if args.since:

@@ -1,0 +1,6 @@
+{
+  "package": "ijc_hsk_sync",
+  "name": "IJC HSK - auto-update decks from GitHub",
+  "min_point_version": 231000,
+  "homepage": "https://github.com/gubadam/ijc-hsk"
+}

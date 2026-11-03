@@ -1,0 +1,7 @@
+{
+  "repo": "gubadam/ijc-hsk",
+  "asset": "ijc-hsk-all.apkg",
+  "github_token": "",
+  "check_on_startup": true,
+  "sync_after_import": true
+}
