@@ -64,6 +64,20 @@ Browser sidebar and you can study by type (search `tag:pos::verb`):
 
 A word that works as two parts of speech can have two tags.
 
+### Pinyin capitalization
+
+Pinyin follows the official orthography standard **GB/T 16159-2012**
+(汉语拼音正词法基本规则, [text](https://pinyin.info/rules/GBT16159-2012.html)):
+
+- first letter of a sentence is capitalized (6.3.1): *Wǒ shì xuésheng.*
+- proper nouns are capitalized (6.3.2): *Zhōngguó, Bōlán, Rìběn*
+- surname and given name are separate words, both capitalized (6.2.1): *Lǐ Yuè*
+- a proper noun joined with a common noun stays capitalized when the whole
+  is a proper noun (6.3.3): *Hànyǔ*, and by the same rule *Zhōngguórén, Bōlánrén*
+
+Applies to `WordPinyin` too. Auto-filled sentence pinyin gets a capital first
+letter; proper nouns inside it have to be fixed by hand.
+
 Auto-filled pinyin uses dictionary tones, so neutral tones come out as full
 tones (e.g. 谢谢 → `xièxiè` instead of `xièxie`). The build log lists every
 auto-filled value. If one is wrong, write the correct one into the CSV.

@@ -10,16 +10,16 @@ Definition,WordSimplified,WordPinyin,SentenceSimplified,SentencePinyin,SentenceT
 8,八,bā,,,,,20261020 pos::numeral,N+i<hrQP~q
 9,九,jiǔ,,,,,20261020 pos::numeral,qUBOPX-sL3
 10,十,shí,,,,,20261020 pos::numeral,H|eiDO+=0L
-Ty,你,nǐ,你好。,nǐ hǎo,Cześć,,20261022 pos::pronoun,c6d=>:Ymy8
-Ty (forma grzecznościowa),您,nín,您好。,nín hǎo,Cześć,,20261022 pos::pronoun,ydM3@dX!jt
+Ty,你,nǐ,你好。,Nǐ hǎo,Cześć,,20261022 pos::pronoun,c6d=>:Ymy8
+Ty (forma grzecznościowa),您,nín,您好。,Nín hǎo,Cześć,,20261022 pos::pronoun,ydM3@dX!jt
 Dobrze; dobry,好,hǎo,,,,,20261022 pos::adjective,m{+TjFO%;{
 Ja,我,wǒ,,,,,20261022 pos::pronoun,oo>!8c-swU
-Bardzo,很,hěn,我很好。,wǒ hěn hǎo,Mam się dobrze.,,20261022 pos::adverb,fJcw:!bM;.
-Też,也,yě,我也很好。,wǒ yě hěn hǎo,Też mam się dobrze.,,20261022 pos::adverb,yG*O$?W]u#
+Bardzo,很,hěn,我很好。,Wǒ hěn hǎo,Mam się dobrze.,,20261022 pos::adverb,fJcw:!bM;.
+Też,也,yě,我也很好。,Wǒ yě hěn hǎo,Też mam się dobrze.,,20261022 pos::adverb,yG*O$?W]u#
 "A……?
-Wyraża pytanie zwrotne, dodawana na końcu zdania.",呢,ne,你呢,nǐ ne?,A ty?,,20261022 pos::particle,bb6W5Cg#6A
+Wyraża pytanie zwrotne, dodawana na końcu zdania.",呢,ne,你呢,Nǐ ne?,A ty?,,20261022 pos::particle,bb6W5Cg#6A
 "Czy……?
-Tworzy pytania typu „tak/nie”, dodawana na końcu zdania.",吗,ma,你好吗？,nǐ hǎo ma?,Jak się masz?,,20261022 pos::particle,H5Lq7XZO^X
+Tworzy pytania typu „tak/nie”, dodawana na końcu zdania.",吗,ma,你好吗？,Nǐ hǎo ma?,Jak się masz?,,20261022 pos::particle,H5Lq7XZO^X
 74,七十四,qī shí sì,,,,,20261022 pos::numeral,C{V+K=#y*f
 50,五十,wǔ shí,,,,,20261022 pos::numeral,M.l&T7m7k-
 Dziękuję,谢谢,xièxie,,,,,20261027 pos::verb,G5(WjPBs)N
@@ -28,14 +28,15 @@ Trzeba,用,yòng,,,,,20261027 pos::verb,L]2@ASAPV]
 Nie trzeba,不用,búyòng,,,,,20261027 pos::adverb,mI_f%x`32t
 Nie ma za co,不用谢,búyòngxiè,,,,,20261027 pos::phrase,yh`s%W=MCG
 Do widzenia,再见,zàijiàn,,,,,20261027 pos::phrase,jKDlN1gY[@
-Nazywać się; mieć na imię,叫,jiào,我叫李月。,wǒ jiào Lǐ Yuè.,Nazywam się Li Yue.,,20261027 pos::verb,"q~i,7V(&nZ"
-Co; jaki,什么,shénme,你叫什么名字？,nǐ jiào shénme míngzì?,Jak się nazywasz?,,20261027 pos::pronoun,i-GX;bHJ!;
-Imię,名字,míngzì,你叫什么名字？,nǐ jiào shénme míngzì?,Jak się nazywasz?,,20261027 pos::noun,MdclfM/~{!
-Być,是,shì,我是学生。,wǒ shì xuésheng.,Jestem studentem.,,20261027 pos::verb,Ms>qa`nn#>
-Nauczyciel,老师,lǎoshī,你是老师吗？,nǐ shì lǎoshī ma?,Czy jesteś nauczycielem?,,20261027 pos::noun,n9:q9bu>;L
-Student; uczeń,学生,xuésheng,我不是老师，我是学生。,"wǒ bú shì lǎoshī, wǒ shì xuésheng.","Nie jestem nauczycielem, jestem studentem.",,20261027 pos::noun,hk0F2f@x+w
-Człowiek; osoba,人,rén,你是中国人吗？,nǐ shì Zhōngguórén ma?,Czy jesteś Chińczykiem?,,20261027 pos::noun,I5o[)/UjL~
+Nazywać się; mieć na imię,叫,jiào,我叫李月。,Wǒ jiào Lǐ Yuè.,Nazywam się Li Yue.,,20261027 pos::verb,"q~i,7V(&nZ"
+Co; jaki,什么,shénme,你叫什么名字？,Nǐ jiào shénme míngzì?,Jak się nazywasz?,,20261027 pos::pronoun,i-GX;bHJ!;
+Imię,名字,míngzì,你叫什么名字？,Nǐ jiào shénme míngzì?,Jak się nazywasz?,,20261027 pos::noun,MdclfM/~{!
+Być,是,shì,我是学生。,Wǒ shì xuésheng.,Jestem studentem.,,20261027 pos::verb,Ms>qa`nn#>
+Nauczyciel,老师,lǎoshī,你是老师吗？,Nǐ shì lǎoshī ma?,Czy jesteś nauczycielem?,,20261027 pos::noun,n9:q9bu>;L
+Student; uczeń,学生,xuésheng,我不是老师，我是学生。,"Wǒ bú shì lǎoshī, wǒ shì xuésheng.","Nie jestem nauczycielem, jestem studentem.",,20261027 pos::noun,hk0F2f@x+w
+Człowiek; osoba,人,rén,你是中国人吗？,Nǐ shì Zhōngguórén ma?,Czy jesteś Chińczykiem?,,20261027 pos::noun,I5o[)/UjL~
 Kraj,国,guó,,,,,20261027 pos::noun,b?rqp0St8!
+<<<<<<< HEAD
 Chiny,中国,zhōngguó,他是中国人。,tā shì Zhōngguórén.,On jest Chińczykiem.,,20261027 pos::noun,uZ8ns)ZY}e
 Stany Zjednoczone,美国,měiguó,,,,,20261027 pos::noun,nfeCvvnb2=
 Polska,波兰,bōlán,,,,,20261027 pos::noun,Kt!Ei&pEbm
@@ -70,3 +71,39 @@ Rosja,俄罗斯,éluósī,他不是俄罗斯人。,tā bú shì Éluósīrén.,O
 Ukraina,乌克兰,wūkèlán,她是乌克兰人。,tā shì Wūkèlánrén.,Ona jest Ukrainką.,,20261103 pos::noun extra,ixQa5#t@N;
 Japonia,日本,rìběn,你是日本人吗？,nǐ shì Rìběnrén ma?,Czy jesteś Japończykiem?,,20261103 pos::noun extra,y[s!FeuRUN
 Wietnam,越南,yuènán,我们不是越南人。,wǒmen bú shì Yuènánrén.,Nie jesteśmy Wietnamczykami.,,20261103 pos::noun extra,jDdYU1:O[S
+=======
+Chiny,中国,Zhōngguó,他是中国人。,Tā shì Zhōngguórén.,On jest Chińczykiem.,,20261027 pos::noun,uZ8ns)ZY}e
+Stany Zjednoczone,美国,Měiguó,,,,,20261027 pos::noun,nfeCvvnb2=
+Polska,波兰,Bōlán,,,,,20261027 pos::noun,Kt!Ei&pEbm
+Chińczyk; Chinka,中国人,Zhōngguórén,我不是中国人，我是波兰人。,"Wǒ bú shì Zhōngguórén, wǒ shì Bōlánrén.","Nie jestem Chińczykiem, jestem Polakiem.",,20261027 pos::noun,"m|e,J}34VV"
+Amerykanin; Amerykanka,美国人,Měiguórén,他是美国人吗？,Tā shì Měiguórén ma?,Czy on jest Amerykaninem?,,20261027 pos::noun,G%V1yC/lp+
+Polak; Polka,波兰人,Bōlánrén,我是波兰人。,Wǒ shì Bōlánrén.,Jestem Polakiem.,,20261027 pos::noun,kadrmCSH[R
+Który,哪,nǎ,你是哪国人？,Nǐ shì nǎ guó rén?,Skąd jesteś? (Z jakiego kraju?),,20261027 pos::pronoun,c<6H@(9&m]
+Który kraj,哪国,nǎ guó,他是哪国人？,Tā shì nǎ guó rén?,Skąd on jest? (Z jakiego kraju?),,20261027 pos::phrase,nF1aj2`4uS
+Li Yue (imię),李月,Lǐ Yuè,她叫李月。,Tā jiào Lǐ Yuè.,Ona ma na imię Li Yue.,,20261027 pos::noun,iV!aY|P=[}
+Ona,她,tā,她是老师。,Tā shì lǎoshī.,Ona jest nauczycielką.,,20261027 pos::pronoun,t1;-b%L1Gw
+On,他,tā,他是波兰人。,Tā shì Bōlánrén.,On jest Polakiem.,,20261027 pos::pronoun,uA6ExvZD&M
+Kto,谁,shéi,她是谁？,Tā shì shéi?,Kim ona jest?,,20261103 pos::pronoun,
+Kolega / koleżanka z klasy,同学,tóngxué,他是我同学。,Tā shì wǒ tóngxué.,On jest moim kolegą z klasy.,,20261103 pos::noun,
+Przyjaciel,朋友,péngyou,她不是我同学，她是我朋友。,"Tā bú shì wǒ tóngxué, tā shì wǒ péngyou.","Ona nie jest moją koleżanką z klasy, jest moją przyjaciółką.",,20261103 pos::noun,
+Partykuła wskazująca przynależność,的,de,他是我的朋友。,Tā shì wǒ de péngyou.,On jest moim przyjacielem.,,20261103 pos::particle,
+Mój,我的,wǒde,我的老师是中国人。,Wǒ de lǎoshī shì Zhōngguórén.,Mój nauczyciel jest Chińczykiem.,,20261103 pos::pronoun,
+Twój,你的,nǐde,你的老师是谁？,Nǐ de lǎoshī shì shéi?,Kto jest twoim nauczycielem?,,20261103 pos::pronoun,
+Jego,他的,tāde,他的朋友是美国人。,Tā de péngyou shì Měiguórén.,Jego przyjaciel jest Amerykaninem.,,20261103 pos::pronoun,
+Jej,她的,tāde,她的老师是波兰人。,Tā de lǎoshī shì Bōlánrén.,Jej nauczyciel jest Polakiem.,,20261103 pos::pronoun,
+Czyj,谁的,shéide,她是谁的老师？,Tā shì shéi de lǎoshī?,Czyją nauczycielką ona jest?,,20261103 pos::pronoun,
+Język chiński,汉语,Hànyǔ,她是我的汉语老师。,Tā shì wǒ de Hànyǔ lǎoshī.,Ona jest moją nauczycielką chińskiego.,,20261103 pos::noun,
+Mówić,说,shuō,你说汉语吗？,Nǐ shuō Hànyǔ ma?,Czy mówisz po chińsku?,,20261103 pos::verb,
+Partykuła liczby mnogiej,们,men,他们是我朋友。,Tāmen shì wǒ péngyou.,Oni są moimi przyjaciółmi.,,20261103 pos::particle,
+My,我们,wǒmen,我们是学生。,Wǒmen shì xuésheng.,Jesteśmy studentami.,,20261103 pos::pronoun,
+Wy,你们,nǐmen,你们是哪国人？,Nǐmen shì nǎ guó rén?,Skąd jesteście?,,20261103 pos::pronoun,
+Oni,他们,tāmen,他们是谁？,Tāmen shì shéi?,Kim oni są?,,20261103 pos::pronoun,
+One,她们,tāmen,她们是我的同学。,Tāmen shì wǒ de tóngxué.,One są moimi koleżankami z klasy.,,20261103 pos::pronoun,
+Wielka Brytania,英国,Yīngguó,他是英国人。,Tā shì Yīngguórén.,On jest Brytyjczykiem.,,20261103 pos::noun extra,
+Francja,法国,Fǎguó,她是法国人吗？,Tā shì Fǎguórén ma?,Czy ona jest Francuzką?,,20261103 pos::noun extra,
+Niemcy,德国,Déguó,我的朋友是德国人。,Wǒ de péngyou shì Déguórén.,Mój przyjaciel jest Niemcem.,,20261103 pos::noun extra,
+Rosja,俄罗斯,Éluósī,他不是俄罗斯人。,Tā bú shì Éluósīrén.,On nie jest Rosjaninem.,,20261103 pos::noun extra,
+Ukraina,乌克兰,Wūkèlán,她是乌克兰人。,Tā shì Wūkèlánrén.,Ona jest Ukrainką.,,20261103 pos::noun extra,
+Japonia,日本,Rìběn,你是日本人吗？,Nǐ shì Rìběnrén ma?,Czy jesteś Japończykiem?,,20261103 pos::noun extra,
+Wietnam,越南,Yuènán,我们不是越南人。,Wǒmen bú shì Yuènánrén.,Nie jesteśmy Wietnamczykami.,,20261103 pos::noun extra,
+>>>>>>> 8d251e8 (Pinyin: wielkie litery wg GB/T 16159-2012)

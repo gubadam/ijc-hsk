@@ -211,7 +211,9 @@ def load_deck(csv_path: Path, model, report: Report, seen: dict, seen_guids: dic
                 row["WordPinyin"] = to_pinyin(word, sentence=False)
                 report.filled.append(f"{loc}: WordPinyin '{word}' → {row['WordPinyin']}")
             if row["SentenceSimplified"] and not row["SentencePinyin"]:
-                row["SentencePinyin"] = sentence_pinyin(row["SentenceSimplified"], word, row["WordPinyin"])
+                sp = sentence_pinyin(row["SentenceSimplified"], word, row["WordPinyin"])
+                # GB/T 16159-2012, 6.3.1: capitalize the first letter of a sentence
+                row["SentencePinyin"] = sp[:1].upper() + sp[1:]
                 report.filled.append(f"{loc}: SentencePinyin → {row['SentencePinyin']}")
 
             # consistency checks
