@@ -70,46 +70,46 @@ Rosja,俄罗斯,Éluósī,他不是俄罗斯人。,Tā bú shì Éluósīrén.,O
 Ukraina,乌克兰,Wūkèlán,她是乌克兰人。,Tā shì Wūkèlánrén.,Ona jest Ukrainką.,,20261103 pos::noun extra,ixQa5#t@N;
 Japonia,日本,Rìběn,你是日本人吗？,Nǐ shì Rìběnrén ma?,Czy jesteś Japończykiem?,,20261103 pos::noun extra,y[s!FeuRUN
 Wietnam,越南,Yuènán,我们不是越南人。,Wǒmen bú shì Yuènánrén.,Nie jesteśmy Wietnamczykami.,,20261103 pos::noun extra,jDdYU1:O[S
-Koledzy / koleżanki z klasy,同学们,tóngxué men,同学们好！,Tóngxué men hǎo!,Dzień dobry wszystkim! (do grupy),,20261110 pos::noun,
-Przyjaciele,朋友们,péngyou men,朋友们好！,Péngyou men hǎo!,"Witajcie, przyjaciele!",,20261110 pos::noun,
-Nasz,我们的,wǒmen de,她是我们的汉语老师。,Tā shì wǒmen de Hànyǔ lǎoshī.,Ona jest naszą nauczycielką chińskiego.,,20261110 pos::pronoun,
-Wasz,你们的,nǐmen de,你们的老师是谁？,Nǐmen de lǎoshī shì shéi?,Kto jest waszym nauczycielem?,,20261110 pos::pronoun,
-Ich (męskoosobowe),他们的,tāmen de,他们的老师是中国人。,Tāmen de lǎoshī shì Zhōngguórén.,Ich nauczyciel jest Chińczykiem.,,20261110 pos::pronoun,
-Ich (niemęskoosobowe),她们的,tāmen de,她们的朋友是美国人。,Tāmen de péngyou shì Měiguórén.,Ich przyjaciel jest Amerykaninem.,,20261110 pos::pronoun,
-Czy…? (pytanie „jest czy nie jest”),是不是,shìbushì,你是不是学生？,Nǐ shìbushì xuésheng?,Jesteś studentem (czy nie)?,,20261110 pos::phrase,
-Dobry przyjaciel,好朋友,hǎo péngyou,他是我的好朋友。,Tā shì wǒ de hǎo péngyou.,On jest moim dobrym przyjacielem.,,20261110 pos::phrase,
-Męski (płeć),男,nán,他是男老师。,Tā shì nán lǎoshī.,On jest nauczycielem (mężczyzną).,,20261110 pos::adjective,
-Żeński (płeć),女,nǚ,我的汉语老师是女老师。,Wǒ de Hànyǔ lǎoshī shì nǚ lǎoshī.,Moja nauczycielka chińskiego jest kobietą.,,20261110 pos::adjective,
-Mężczyzna,男人,nánrén,他是好男人。,Tā shì hǎo nánrén.,On jest dobrym mężczyzną.,,20261110 pos::noun,
-Kobieta,女人,nǚrén,她是中国女人。,Tā shì Zhōngguó nǚrén.,Ona jest Chinką.,,20261110 pos::noun,
-Chłopiec,男孩,nánhái,她有一个男孩。,Tā yǒu yí gè nánhái.,Ona ma synka.,,20261110 pos::noun,
-Dziewczynka,女孩,nǚhái,李月是中国女孩。,Lǐ Yuè shì Zhōngguó nǚhái.,Li Yue jest dziewczyną z Chin.,,20261110 pos::noun,
-Mężczyzna (potocznie: „ten męski”),男的,nán de,你的汉语老师是男的吗？,Nǐ de Hànyǔ lǎoshī shì nán de ma?,Czy twój nauczyciel chińskiego to mężczyzna?,,20261110 pos::noun,
-Kobieta (potocznie: „ta żeńska”),女的,nǚ de,李老师是女的。,Lǐ lǎoshī shì nǚ de.,Nauczyciel Li to kobieta.,,20261110 pos::noun,
-Chłopak (partner),男朋友,nán péngyou,她有男朋友吗？,Tā yǒu nán péngyou ma?,Czy ona ma chłopaka?,,20261110 pos::noun,
-Dziewczyna (partnerka),女朋友,nǚ péngyou,她是我女朋友。,Tā shì wǒ nǚ péngyou.,Ona jest moją dziewczyną.,,20261110 pos::noun,
-Kolega / koleżanka z pracy,同事,tóngshì,他是我同事，不是我朋友。,"Tā shì wǒ tóngshì, bú shì wǒ péngyou.","On jest moim kolegą z pracy, nie przyjacielem.",,20261110 pos::noun,
-Mieć,有,yǒu,我有三个中国朋友。,Wǒ yǒu sān gè Zhōngguó péngyou.,Mam trzech chińskich przyjaciół.,,20261110 pos::verb,
-Nie mieć,没有,méiyǒu,我没有哥哥。,Wǒ méiyǒu gēge.,Nie mam starszego brata.,,20261110 pos::verb,
-"Klasyfikator (ogólny, m.in. dla osób)",个,gè,你有几个中国朋友？,Nǐ yǒu jǐ gè Zhōngguó péngyou?,Ilu masz chińskich przyjaciół?,,20261110 pos::measure-word,
-Rodzina; dom,家,jiā,我爱我家。,Wǒ ài wǒ jiā.,Kocham moją rodzinę.,,20261110 pos::noun,
-Klasyfikator (członkowie rodziny),口,kǒu,我家有三口人。,Wǒ jiā yǒu sān kǒu rén.,Moja rodzina liczy trzy osoby.,,20261110 pos::measure-word,
-Ile (dla liczb poniżej 10),几,jǐ,你家有几口人？,Nǐ jiā yǒu jǐ kǒu rén?,Ile osób liczy twoja rodzina?,,20261110 pos::pronoun,
-Córka,女儿,nǚ'ér,我女儿四岁。,Wǒ nǚ'ér sì suì.,Moja córka ma cztery lata.,,20261110 pos::noun,
-Syn,儿子,érzi,他儿子十岁。,Tā érzi shí suì.,Jego syn ma dziesięć lat.,,20261110 pos::noun,
-Lat (wiek),岁,suì,我今年二十岁。,Wǒ jīnnián èrshí suì.,W tym roku kończę dwadzieścia lat.,,20261110 pos::measure-word,
-Ile lat (o dzieciach),几岁,jǐsuì,你女儿几岁？,Nǐ nǚ'ér jǐsuì?,Ile lat ma twoja córka?,,20261110 pos::phrase,
-Duży,大,dà,中国很大。,Zhōngguó hěn dà.,Chiny są duże.,,20261110 pos::adjective,
-Dużo; wiele,多,duō,中国人很多。,Zhōngguórén hěn duō.,Chińczyków jest bardzo dużo.,,20261110 pos::adjective,
-Ile lat?; jak duży?,多大,duōdà,你今年多大？,Nǐ jīnnián duōdà?,Ile masz lat?,,20261110 pos::phrase,
-"Wiek (grzecznie, o starszych)",岁数,suìshu,李老师今年多大岁数？,Lǐ lǎoshī jīnnián duōdà suìshu?,Ile lat ma nauczyciel Li?,,20261110 pos::noun,
-Kochać; miłość,爱,ài,你爱波兰吗？,Nǐ ài Bōlán ma?,Czy kochasz Polskę?,,20261110 pos::verb,
-Rok,年,nián,,,,,20261110 pos::noun,
-Ten rok; w tym roku,今年,jīnnián,李老师今年六十五岁。,Lǐ lǎoshī jīnnián liùshíwǔ suì.,Nauczyciel Li ma w tym roku sześćdziesiąt pięć lat.,,20261110 pos::noun,
-Ile,多少,duōshao,你有多少朋友？,Nǐ yǒu duōshao péngyou?,Ilu masz przyjaciół?,,20261110 pos::pronoun,
-Tata,爸爸,bàba,我爸爸是老师。,Wǒ bàba shì lǎoshī.,Mój tata jest nauczycielem.,,20261110 pos::noun,
-Mama,妈妈,māma,你妈妈今年多大？,Nǐ māma jīnnián duōdà?,Ile lat ma twoja mama?,,20261110 pos::noun,
-Starszy brat,哥哥,gēge,你有几个哥哥？,Nǐ yǒu jǐ gè gēge?,Ilu masz starszych braci?,,20261110 pos::noun,
-Młodszy brat,弟弟,dìdi,我弟弟是学生。,Wǒ dìdi shì xuésheng.,Mój młodszy brat jest studentem.,,20261110 pos::noun,
-Starsza siostra,姐姐,jiějie,我没有姐姐。,Wǒ méiyǒu jiějie.,Nie mam starszej siostry.,,20261110 pos::noun,
-Młodsza siostra,妹妹,mèimei,我妹妹八岁。,Wǒ mèimei bā suì.,Moja młodsza siostra ma osiem lat.,,20261110 pos::noun,
+Koledzy / koleżanki z klasy,同学们,tóngxué men,同学们好！,Tóngxué men hǎo!,Dzień dobry wszystkim! (do grupy),,20261110 pos::noun,jq4q)*?=m-
+Przyjaciele,朋友们,péngyou men,朋友们好！,Péngyou men hǎo!,"Witajcie, przyjaciele!",,20261110 pos::noun,m-V/ZUrcF+
+Nasz,我们的,wǒmen de,她是我们的汉语老师。,Tā shì wǒmen de Hànyǔ lǎoshī.,Ona jest naszą nauczycielką chińskiego.,,20261110 pos::pronoun,E~bAjYH+U&
+Wasz,你们的,nǐmen de,你们的老师是谁？,Nǐmen de lǎoshī shì shéi?,Kto jest waszym nauczycielem?,,20261110 pos::pronoun,j3Z.qfkS@q
+Ich (męskoosobowe),他们的,tāmen de,他们的老师是中国人。,Tāmen de lǎoshī shì Zhōngguórén.,Ich nauczyciel jest Chińczykiem.,,20261110 pos::pronoun,qJvvJ(c-V/
+Ich (niemęskoosobowe),她们的,tāmen de,她们的朋友是美国人。,Tāmen de péngyou shì Měiguórén.,Ich przyjaciel jest Amerykaninem.,,20261110 pos::pronoun,hD:8ueWC~o
+Czy…? (pytanie „jest czy nie jest”),是不是,shìbushì,你是不是学生？,Nǐ shìbushì xuésheng?,Jesteś studentem (czy nie)?,,20261110 pos::phrase,P_vXf.$LUe
+Dobry przyjaciel,好朋友,hǎo péngyou,他是我的好朋友。,Tā shì wǒ de hǎo péngyou.,On jest moim dobrym przyjacielem.,,20261110 pos::phrase,DmS4X0K2Np
+Męski (płeć),男,nán,他是男老师。,Tā shì nán lǎoshī.,On jest nauczycielem (mężczyzną).,,20261110 pos::adjective,krX.lHHhfY
+Żeński (płeć),女,nǚ,我的汉语老师是女老师。,Wǒ de Hànyǔ lǎoshī shì nǚ lǎoshī.,Moja nauczycielka chińskiego jest kobietą.,,20261110 pos::adjective,"m-fa#,BW?c"
+Mężczyzna,男人,nánrén,他是好男人。,Tā shì hǎo nánrén.,On jest dobrym mężczyzną.,,20261110 pos::noun,rk1GH#4{_Q
+Kobieta,女人,nǚrén,她是中国女人。,Tā shì Zhōngguó nǚrén.,Ona jest Chinką.,,20261110 pos::noun,n*x8&29k-/
+Chłopiec,男孩,nánhái,她有一个男孩。,Tā yǒu yí gè nánhái.,Ona ma synka.,,20261110 pos::noun,I]XZ$&^|=J
+Dziewczynka,女孩,nǚhái,李月是中国女孩。,Lǐ Yuè shì Zhōngguó nǚhái.,Li Yue jest dziewczyną z Chin.,,20261110 pos::noun,zaA`U3H|Fw
+Mężczyzna (potocznie: „ten męski”),男的,nán de,你的汉语老师是男的吗？,Nǐ de Hànyǔ lǎoshī shì nán de ma?,Czy twój nauczyciel chińskiego to mężczyzna?,,20261110 pos::noun,vH}+U-f6^^
+Kobieta (potocznie: „ta żeńska”),女的,nǚ de,李老师是女的。,Lǐ lǎoshī shì nǚ de.,Nauczyciel Li to kobieta.,,20261110 pos::noun,Khu>3[f7:o
+Chłopak (partner),男朋友,nán péngyou,她有男朋友吗？,Tā yǒu nán péngyou ma?,Czy ona ma chłopaka?,,20261110 pos::noun,gU}e$M`;k9
+Dziewczyna (partnerka),女朋友,nǚ péngyou,她是我女朋友。,Tā shì wǒ nǚ péngyou.,Ona jest moją dziewczyną.,,20261110 pos::noun,*hEJcHm`;
+Kolega / koleżanka z pracy,同事,tóngshì,他是我同事，不是我朋友。,"Tā shì wǒ tóngshì, bú shì wǒ péngyou.","On jest moim kolegą z pracy, nie przyjacielem.",,20261110 pos::noun,F#{V}+*0!W
+Mieć,有,yǒu,我有三个中国朋友。,Wǒ yǒu sān gè Zhōngguó péngyou.,Mam trzech chińskich przyjaciół.,,20261110 pos::verb,CTQD(H7lpf
+Nie mieć,没有,méiyǒu,我没有哥哥。,Wǒ méiyǒu gēge.,Nie mam starszego brata.,,20261110 pos::verb,E@FJfh2IS&
+"Klasyfikator (ogólny, m.in. dla osób)",个,gè,你有几个中国朋友？,Nǐ yǒu jǐ gè Zhōngguó péngyou?,Ilu masz chińskich przyjaciół?,,20261110 pos::measure-word,J%k?$qo9|O
+Rodzina; dom,家,jiā,我爱我家。,Wǒ ài wǒ jiā.,Kocham moją rodzinę.,,20261110 pos::noun,vT9wR2s!L;
+Klasyfikator (członkowie rodziny),口,kǒu,我家有三口人。,Wǒ jiā yǒu sān kǒu rén.,Moja rodzina liczy trzy osoby.,,20261110 pos::measure-word,"I)ML,:c=H?"
+Ile (dla liczb poniżej 10),几,jǐ,你家有几口人？,Nǐ jiā yǒu jǐ kǒu rén?,Ile osób liczy twoja rodzina?,,20261110 pos::pronoun,tx1%rFU>3p
+Córka,女儿,nǚ'ér,我女儿四岁。,Wǒ nǚ'ér sì suì.,Moja córka ma cztery lata.,,20261110 pos::noun,AEC_t0jn*t
+Syn,儿子,érzi,他儿子十岁。,Tā érzi shí suì.,Jego syn ma dziesięć lat.,,20261110 pos::noun,r<RI;n<A!<
+Lat (wiek),岁,suì,我今年二十岁。,Wǒ jīnnián èrshí suì.,W tym roku kończę dwadzieścia lat.,,20261110 pos::measure-word,JBFlQESeg=
+Ile lat (o dzieciach),几岁,jǐsuì,你女儿几岁？,Nǐ nǚ'ér jǐsuì?,Ile lat ma twoja córka?,,20261110 pos::phrase,I+@.z3QWj9
+Duży,大,dà,中国很大。,Zhōngguó hěn dà.,Chiny są duże.,,20261110 pos::adjective,"n21S)v%d,C"
+Dużo; wiele,多,duō,中国人很多。,Zhōngguórén hěn duō.,Chińczyków jest bardzo dużo.,,20261110 pos::adjective,E{DE*d;9oK
+Ile lat?; jak duży?,多大,duōdà,你今年多大？,Nǐ jīnnián duōdà?,Ile masz lat?,,20261110 pos::phrase,i8a?V|DL^^
+"Wiek (grzecznie, o starszych)",岁数,suìshu,李老师今年多大岁数？,Lǐ lǎoshī jīnnián duōdà suìshu?,Ile lat ma nauczyciel Li?,,20261110 pos::noun,C/FZhDCdH6
+Kochać; miłość,爱,ài,你爱波兰吗？,Nǐ ài Bōlán ma?,Czy kochasz Polskę?,,20261110 pos::verb,FP_R0R4?)<
+Rok,年,nián,,,,,20261110 pos::noun,EoMmWsMBeb
+Ten rok; w tym roku,今年,jīnnián,李老师今年六十五岁。,Lǐ lǎoshī jīnnián liùshíwǔ suì.,Nauczyciel Li ma w tym roku sześćdziesiąt pięć lat.,,20261110 pos::noun,Gl#>PVT!(g
+Ile,多少,duōshao,你有多少朋友？,Nǐ yǒu duōshao péngyou?,Ilu masz przyjaciół?,,20261110 pos::pronoun,"HMZf<~Q,~u"
+Tata,爸爸,bàba,我爸爸是老师。,Wǒ bàba shì lǎoshī.,Mój tata jest nauczycielem.,,20261110 pos::noun,BAp4+>aM.g
+Mama,妈妈,māma,你妈妈今年多大？,Nǐ māma jīnnián duōdà?,Ile lat ma twoja mama?,,20261110 pos::noun,B8jz>i~e7~
+Starszy brat,哥哥,gēge,你有几个哥哥？,Nǐ yǒu jǐ gè gēge?,Ilu masz starszych braci?,,20261110 pos::noun,oA|)RChLkP
+Młodszy brat,弟弟,dìdi,我弟弟是学生。,Wǒ dìdi shì xuésheng.,Mój młodszy brat jest studentem.,,20261110 pos::noun,kW-_ut(wmT
+Starsza siostra,姐姐,jiějie,我没有姐姐。,Wǒ méiyǒu jiějie.,Nie mam starszej siostry.,,20261110 pos::noun,fEdnH!]A}M
+Młodsza siostra,妹妹,mèimei,我妹妹八岁。,Wǒ mèimei bā suì.,Moja młodsza siostra ma osiem lat.,,20261110 pos::noun,OrEskoVRl{
