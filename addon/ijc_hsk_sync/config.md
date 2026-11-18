@@ -10,3 +10,7 @@ token with read-only *Contents* access to this one repository.
 
 **sync_after_import** - sync with AnkiWeb right after a new release was
 imported, so your phone gets the new cards. Requires being logged in to AnkiWeb.
+
+**place_cards** – after each import, move cards to the deck the release puts
+them in (e.g. lesson subdecks). Anki itself never moves existing cards on
+import. Turn off if you organise these cards into decks by hand.

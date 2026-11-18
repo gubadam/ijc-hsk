@@ -3,8 +3,11 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
+import sqlite3
 import ssl
 import tempfile
+import zipfile
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
@@ -19,6 +22,7 @@ from anki.import_export_pb2 import ImportAnkiPackageUpdateCondition
 
 API = "https://api.github.com"
 LAST_TAG_KEY = "ijcHskLastImportedTag"  # stored in the collection, so it syncs
+PLACED_TAG_KEY = "ijcHskLastPlacedTag"  # release whose deck layout was applied
 
 
 class UpdateError(Exception):
@@ -122,6 +126,66 @@ def import_package(col: Collection, path: str) -> ImportLogWithChanges:
     ))
 
 
+def package_layout(path: str) -> dict:
+    """{(note guid, card ord): deck name} as laid out in the package.
+
+    Packages built by genanki contain a legacy 'collection.anki2' SQLite file.
+    """
+    tmp = tempfile.mkdtemp(prefix="ijc-hsk-layout-")
+    try:
+        with zipfile.ZipFile(path) as z:
+            names = z.namelist()
+            if "collection.anki2" not in names:
+                return {}
+            z.extract("collection.anki2", tmp)
+        db = sqlite3.connect(os.path.join(tmp, "collection.anki2"))
+        try:
+            decks = json.loads(db.execute("select decks from col").fetchone()[0])
+            deck_names = {int(did): d["name"] for did, d in decks.items()}
+            return {
+                (guid, ord_): deck_names[did]
+                for guid, ord_, did in db.execute(
+                    "select n.guid, c.ord, c.did from cards c join notes n on n.id = c.nid")
+                if did in deck_names
+            }
+        finally:
+            db.close()
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def place_cards(col: Collection, layout: dict) -> int:
+    """Move cards to the deck the package puts them in. Returns how many moved.
+
+    Anki never moves existing cards on import, so without this a word that
+    changes deck (e.g. into a lesson subdeck) would stay where it was. Cards in
+    a filtered deck are left alone.
+    """
+    if not layout:
+        return 0
+    targets: dict = {}
+    rows = col.db.all(
+        "select c.id, n.guid, c.ord, c.did, c.odid from cards c join notes n on n.id = c.nid")
+    for cid, guid, ord_, did, odid in rows:
+        name = layout.get((guid, ord_))
+        if name is None or odid:
+            continue
+        target = col.decks.id(name)  # creates the deck (and its parents) if missing
+        if did != target:
+            targets.setdefault(target, []).append(cid)
+    for did, cids in targets.items():
+        col.set_deck(cids, did)
+    return sum(len(c) for c in targets.values())
+
+
+def placed_tag(col: Collection) -> str:
+    return col.get_config(PLACED_TAG_KEY, "")
+
+
+def set_placed_tag(col: Collection, tag: str) -> None:
+    col.set_config(PLACED_TAG_KEY, tag)
+
+
 def last_imported_tag(col: Collection) -> str:
     return col.get_config(LAST_TAG_KEY, "")
 
@@ -130,7 +194,7 @@ def set_last_imported_tag(col: Collection, tag: str) -> None:
     col.set_config(LAST_TAG_KEY, tag)
 
 
-def summary(result: ImportLogWithChanges) -> str:
+def summary(result: ImportLogWithChanges, moved: int = 0) -> str:
     log = result.log
     parts = []
     if log.new:
@@ -140,4 +204,6 @@ def summary(result: ImportLogWithChanges) -> str:
     problems = len(log.conflicting) + len(log.missing_notetype) + len(log.missing_deck)
     if problems:
         parts.append(f"{problems} skipped")
+    if moved:
+        parts.append(f"{moved} cards moved to their decks")
     return ", ".join(parts) or "no note changes"

@@ -19,9 +19,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from build import FIELDS, deck_name, sniff_reader  # noqa: E402
+from build import FIELDS, SENTENCE_FIELDS, deck_name, is_sentences_file, sniff_reader  # noqa: E402
 
-TRACKED = FIELDS + ["Tags"]
+WORD_TRACKED = ["Lesson"] + FIELDS + ["Tags"]
+SENTENCE_TRACKED = ["Lesson"] + SENTENCE_FIELDS + ["Tags"]
+
+
+def kind(name: str):
+    """(key column, tracked columns, unit) for a CSV file name."""
+    if is_sentences_file(Path(name)):
+        return "Question", SENTENCE_TRACKED, "sentences"
+    return "WordSimplified", WORD_TRACKED, "words"
 STYLE_PATHS = ["templates"]
 BUILD_PATHS = ["build.py", "requirements.txt"]
 
@@ -31,14 +39,15 @@ def git(*args: str) -> str:
                           capture_output=True, text=True).stdout
 
 
-def parse(text: str) -> dict:
-    reader = sniff_reader(io.StringIO(text.lstrip("﻿")))
+def parse(text: str, name: str) -> dict:
+    key, tracked, _ = kind(name)
+    reader = sniff_reader(io.StringIO(text.lstrip("\ufeff")))
     reader.fieldnames = [h.strip() for h in (reader.fieldnames or [])]
     rows = {}
     for row in reader:
-        word = (row.get("WordSimplified") or "").strip()
-        if word:
-            rows[word] = {k: (row.get(k) or "").strip() for k in TRACKED}
+        k = (row.get(key) or "").strip()
+        if k:
+            rows[k] = {c: (row.get(c) or "").strip() for c in tracked}
     return rows
 
 
@@ -47,36 +56,44 @@ def decks_at(ref: str) -> dict:
     if not ref:
         return {}
     names = git("ls-tree", "--name-only", f"{ref}:decks").split()
-    return {n: parse(git("show", f"{ref}:decks/{n}")) for n in names if n.endswith(".csv")}
+    return {n: parse(git("show", f"{ref}:decks/{n}"), n) for n in names if n.endswith(".csv")}
 
 
 def decks_now() -> dict:
-    return {p.name: parse(p.read_text(encoding="utf-8"))
+    return {p.name: parse(p.read_text(encoding="utf-8"), p.name)
             for p in sorted((ROOT / "decks").glob("*.csv"))}
 
 
-def label(word: str, row: dict) -> str:
-    parts = [word]
+def label(key: str, row: dict) -> str:
+    lesson = f"[L{row['Lesson']}] " if row.get("Lesson") else ""
+    if "Question" in row:
+        t = row["QuestionTranslation"]
+        return lesson + key + (f" — {t}" if t else "")
+    parts = [key]
     if row["WordPinyin"]:
         parts.append(row["WordPinyin"])
     d = row["Definition"].split("\n")[0]
-    return " ".join(parts) + (f" — {d}" if d else "")
+    return lesson + " ".join(parts) + (f" — {d}" if d else "")
 
 
 def deck_section(name: str, old: dict | None, new: dict | None) -> list[str]:
-    title = deck_name(Path(name))
+    _, tracked, unit = kind(name)
+    title = deck_name(Path(name)) + (" — zdania" if unit == "sentences" else "")
     if new is None:
-        return [f"### {title} — deck removed ({len(old)} words)", ""]
+        return [f"### {title} — removed ({len(old)} {unit})", ""]
     old = old or {}
     added = [w for w in new if w not in old]
     removed = [w for w in old if w not in new]
-    changed = [(w, [f for f in TRACKED if old[w][f] != new[w][f]])
-               for w in new if w in old and old[w] != new[w]]
-    if not (added or removed or changed):
+    changed, moved = [], []
+    for w in new:
+        if w in old and old[w] != new[w]:
+            fields = [f for f in tracked if old[w].get(f, "") != new[w][f]]
+            (moved if fields == ["Lesson"] else changed).append((w, fields))
+    if not (added or removed or changed or moved):
         return []
 
-    head = f"### {title} — new deck" if not old else f"### {title}"
-    out = [f"{head} ({len(new)} words)", ""]
+    head = f"### {title} — new" if not old else f"### {title}"
+    out = [f"{head} ({len(new)} {unit})", ""]
     if added:
         out.append(f"**Added ({len(added)}):**")
         out += [f"- {label(w, new[w])}" for w in added]
@@ -88,6 +105,13 @@ def deck_section(name: str, old: dict | None, new: dict | None) -> list[str]:
     if changed:
         out.append(f"**Changed ({len(changed)}):**")
         out += [f"- {w}: {', '.join(fields)}" for w, fields in changed]
+        out.append("")
+    if moved:
+        by_lesson: dict = {}
+        for w, _ in moved:
+            by_lesson.setdefault(new[w]["Lesson"] or "–", []).append(w)
+        out.append(f"**Moved to another lesson ({len(moved)}):**")
+        out += [f"- Lekcja {n}: {' '.join(ws)}" for n, ws in sorted(by_lesson.items())]
         out.append("")
     return out
 
@@ -121,7 +145,6 @@ def main() -> int:
         lines += ["## Decks", ""] + deck_lines
     lines += path_section("Card templates", args.since, STYLE_PATHS)
     lines += path_section("Build", args.since, BUILD_PATHS)
-    lines += path_section("Anki add-on", args.since, ["addon"])
     changed = bool(lines)
 
     if args.since:

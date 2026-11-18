@@ -3,9 +3,9 @@ name: Build Anki decks
 on:
   push:
     branches: [main]
-    paths: ["decks/**", "templates/**", "media/**", "build.py", "requirements.txt", "tools/**", "addon/**", ".github/workflows/build.yml"]
+    paths: ["decks/**", "templates/**", "media/**", "build.py", "requirements.txt", "tools/**", ".github/workflows/build.yml"]
   pull_request:
-    paths: ["decks/**", "templates/**", "media/**", "build.py", "requirements.txt", "tools/**", "addon/**"]
+    paths: ["decks/**", "templates/**", "media/**", "build.py", "requirements.txt", "tools/**"]
   workflow_dispatch:
 
 permissions:
@@ -38,13 +38,6 @@ jobs:
         if: github.event_name != 'pull_request'
         run: python build.py ${{ github.ref == 'refs/heads/main' && '--write-guids' || '' }}
 
-      - name: Package Anki add-on
-        if: github.event_name != 'pull_request'
-        run: |
-          mkdir -p dist
-          cd addon/ijc_hsk_sync
-          zip -r -X ../../dist/ijc-hsk-sync.ankiaddon . -x '__pycache__/*' '*.pyc' 'meta.json'
-
       # New words get their GUID stored in the CSV, so later edits to the word
       # itself don't make Anki treat it as a new note.
       - name: Commit new GUIDs
@@ -68,9 +61,7 @@ jobs:
         if: github.event_name != 'pull_request'
         with:
           name: anki-decks
-          path: |
-            dist/*.apkg
-            dist/*.ankiaddon
+          path: dist/*.apkg
 
       - name: Publish release
         if: >-
@@ -80,7 +71,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           tag="v$(date -u +%Y.%m.%d).${GITHUB_RUN_NUMBER}"
-          gh release create "$tag" dist/*.apkg dist/*.ankiaddon \
+          gh release create "$tag" dist/*.apkg \
             --target "$(git rev-parse HEAD)" \
             --title "$(date -u +%Y-%m-%d) (#${GITHUB_RUN_NUMBER})" \
             --notes-file changelog.md \

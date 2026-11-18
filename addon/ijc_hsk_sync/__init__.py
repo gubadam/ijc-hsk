@@ -11,7 +11,7 @@ import os
 
 from aqt import gui_hooks, mw
 from aqt.operations import CollectionOp, QueryOp
-from aqt.qt import QAction
+from aqt.qt import QAction, QFileDialog
 from aqt.utils import openLink, showWarning, tooltip
 
 from . import updater
@@ -36,10 +36,11 @@ def check_for_updates(manual: bool = False) -> None:
         return
     _state["busy"] = True
     last = updater.last_imported_tag(mw.col)
+    placed = updater.placed_tag(mw.col) if cfg.get("place_cards", True) else last
 
     def fetch(_col):
         release = updater.latest_release(repo, asset, token)
-        if release.tag == last:
+        if release.tag == last and release.tag == placed:
             return release, None
         return release, updater.download(release, token)
 
@@ -68,13 +69,18 @@ def check_for_updates(manual: bool = False) -> None:
 def _import(release: updater.Release, path: str, cfg: dict) -> None:
     def op(col):
         result = updater.import_package(col, path)
+        moved = 0
+        if cfg.get("place_cards", True):
+            moved = updater.place_cards(col, updater.package_layout(path))
+            updater.set_placed_tag(col, release.tag)
         updater.set_last_imported_tag(col, release.tag)
-        return result
+        return result, moved
 
-    def done(result) -> None:
+    def done(out) -> None:
+        result, moved = out
         _cleanup(path)
         _state["busy"] = False
-        tooltip(f"{TITLE}: imported {release.tag} — {updater.summary(result)}.", period=6000)
+        tooltip(f"{TITLE}: imported {release.tag} — {updater.summary(result, moved)}.", period=6000)
         if cfg.get("sync_after_import", True) and mw.pm.sync_auth():
             mw.on_sync_button_clicked()
 
@@ -82,6 +88,35 @@ def _import(release: updater.Release, path: str, cfg: dict) -> None:
         _cleanup(path)
         _state["busy"] = False
         showWarning(f"{TITLE}: importing {release.tag} failed.\n\n{err}")
+
+    CollectionOp(parent=mw, op=op).success(done).failure(failed).run_in_background()
+
+
+def import_local_file() -> None:
+    """Import a locally built .apkg the same way as a release (incl. moving cards)."""
+    if _state["busy"] or not mw.col:
+        return
+    path, _ = QFileDialog.getOpenFileName(mw, f"{TITLE}: import deck package", "", "Anki package (*.apkg)")
+    if not path:
+        return
+    cfg = _config()
+    _state["busy"] = True
+
+    def op(col):
+        result = updater.import_package(col, path)
+        moved = updater.place_cards(col, updater.package_layout(path)) if cfg.get("place_cards", True) else 0
+        return result, moved
+
+    def done(out) -> None:
+        result, moved = out
+        _state["busy"] = False
+        tooltip(f"{TITLE}: imported {os.path.basename(path)} — {updater.summary(result, moved)}.", period=6000)
+        if cfg.get("sync_after_import", True) and mw.pm.sync_auth():
+            mw.on_sync_button_clicked()
+
+    def failed(err: Exception) -> None:
+        _state["busy"] = False
+        showWarning(f"{TITLE}: importing {os.path.basename(path)} failed.\n\n{err}")
 
     CollectionOp(parent=mw, op=op).success(done).failure(failed).run_in_background()
 
@@ -124,6 +159,9 @@ def _setup_menu() -> None:
     check = QAction(f"{TITLE}: check for updates", mw)
     check.triggered.connect(lambda: check_for_updates(manual=True))
     menu.addAction(check)
+    local = QAction(f"{TITLE}: import local .apkg…", mw)
+    local.triggered.connect(import_local_file)
+    menu.addAction(local)
     releases = QAction(f"{TITLE}: open releases (changelog)", mw)
     releases.triggered.connect(_open_releases)
     menu.addAction(releases)

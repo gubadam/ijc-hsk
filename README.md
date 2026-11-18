@@ -4,7 +4,28 @@ Anki decks for Chinese (zh ⇄ pl), built from CSV files.
 
 Every `decks/<name>.csv` becomes a separate deck named `IJC <NAME>`
 (the `ijc_` prefix is dropped, e.g. `ijc_hsk1-2.csv` → `IJC HSK1-2`).
-Each note produces two cards: **Chiński → Polski** and **Polski → Chiński**.
+Each word produces two cards: **Chiński → Polski** and **Polski → Chiński**.
+
+An optional `decks/<name>.sentences.csv` adds sentence cards (dialog lines:
+question in hanzi on the front; question pinyin + translation and the answer
+on the back) to the same deck.
+
+Rows are split into subdecks by their `Lesson` column:
+
+```
+IJC HSK1-1
+├── Słowa
+│   ├── Lekcja 1
+│   ├── Lekcja 2
+│   └── …
+└── Zdania
+    ├── Lekcja 1
+    └── …
+```
+
+Studying `IJC HSK1-1` covers everything, `Słowa` all words, `Słowa::Lekcja 3`
+only the words of lesson 3. Rows without `Lesson` go straight into
+`Słowa` / `Zdania`.
 
 ## Workflow
 
@@ -14,8 +35,7 @@ Each note produces two cards: **Chiński → Polski** and **Polski → Chiński*
    release (`v<date>.<run>`), so every previous version stays available under
    **[Releases](../../releases)**. The newest one is always at
    **[releases/latest](../../releases/latest)**.
-4. The Anki add-on imports it automatically (see below), or download the
-   `.apkg` and import it yourself (*File → Import*).
+4. Download the `.apkg` and import it in Anki (*File → Import*).
 
 Release notes are generated from the data, compared with the previous release:
 words added, removed or changed per deck (and which fields changed), template
@@ -40,6 +60,7 @@ edit**, or your push will be rejected.
 
 | Column | Required | Notes |
 |---|---|---|
+| `Lesson` | | Lesson number → `Słowa::Lekcja N` subdeck |
 | `Definition` | ✅ | Polish meaning |
 | `WordSimplified` | ✅ | Unique across **all** decks |
 | `WordPinyin` | | Auto-filled when empty |
@@ -88,6 +109,20 @@ The build **fails** on missing required fields, duplicate words or missing
 images, and **warns** when a sentence doesn't contain the word or the sentence
 pinyin doesn't contain the word pinyin.
 
+### Sentences CSV (`<name>.sentences.csv`)
+
+| Column | Required | Notes |
+|---|---|---|
+| `Lesson` | | Lesson number → `Zdania::Lekcja N` subdeck |
+| `Question` | ✅ | Sentence or question in hanzi; unique |
+| `QuestionPinyin` | | Auto-filled when empty |
+| `QuestionTranslation` | | |
+| `Answer` | | Optional answer in hanzi |
+| `AnswerPinyin` | | Auto-filled when empty |
+| `AnswerTranslation` | | |
+| `Tags` | | Same as for words; `sentence` is added automatically |
+| `Guid` | | Leave empty, CI fills it in. Changing `Question` makes a new note |
+
 ## Importing notes from Anki
 
 Export from Anki with *Notes in Plain Text*, with the unique identifier,
@@ -101,29 +136,16 @@ HTML is converted to plain text and Anki's GUID goes into the `Guid` column, so
 the generated deck updates those notes instead of duplicating them. Words
 already in the CSV are skipped (`--replace` overwrites the whole file).
 
-## Auto-update in Anki (add-on)
+## Moving existing cards between decks
 
-`addon/ijc_hsk_sync` is an Anki desktop add-on that keeps the decks up to date
-without manual imports, and gets new cards to your phone via AnkiWeb:
+Anki never moves existing cards when you import a package; only new notes land
+in the deck the package puts them in. Every card carries a `lekcja::N` tag, so
+after changing a word's `Lesson` (or the deck layout) move its cards by hand:
+*Browse* → search e.g. `tag:lekcja::3 note:"IJC Chinese (zh⇄pl)"` → select all →
+*Change Deck* → `IJC HSK1-1::Słowa::Lekcja 3` (for sentences:
+`tag:lekcja::3 tag:sentence` → `IJC HSK1-1::Zdania::Lekcja 3`).
 
-1. Every release contains `ijc-hsk-sync.ankiaddon`. Download it and
-   double-click it (or *Tools → Add-ons → Install from file*), restart Anki.
-2. If the repo is private, set `github_token` in the add-on config
-   (*Tools → Add-ons → IJC HSK → Config*): a fine-grained token with read-only
-   *Contents* access to this repository.
-
-When Anki opens, after its normal startup sync, the add-on checks the latest
-release. If it hasn't been imported yet, it downloads `ijc-hsk-all.apkg`,
-imports it and syncs with AnkiWeb, so your phone picks the new cards up on its
-next sync. Notes are matched by GUID and overwritten with the repo contents;
-review history, scheduling and deck options are never touched. The last
-imported release is stored in the collection, so it isn't re-imported on
-another computer that already synced it.
-
-*Tools → IJC HSK: check for updates* checks right away;
-*Tools → IJC HSK: open releases* shows the changelogs.
-
-Edits you make to these notes inside Anki are overwritten by the next release.
+Edits you make to these notes inside Anki are overwritten by the next import.
 Change the CSV instead.
 
 ## Local build
@@ -144,7 +166,6 @@ media/       images referenced from the Image column
 templates/   card HTML, CSS and the shared script (highlighting + stroke order)
 build.py     CSV → .apkg
 tools/       helpers (Anki export → CSV, release notes)
-addon/       Anki add-on that imports new releases automatically
 ```
 
 `dist/ijc-hsk-all.apkg` contains all decks in one file.

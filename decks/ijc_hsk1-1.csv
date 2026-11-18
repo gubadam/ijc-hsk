@@ -1,115 +1,146 @@
-Definition,WordSimplified,WordPinyin,SentenceSimplified,SentencePinyin,SentenceTranslation,Image,Tags,Guid
-0,零,líng,,,,,20261020 pos::numeral,PopR*:Hb$b
-1,一,yī,,,,,20261020 pos::numeral,Einjw)NR95
-2,二,èr,,,,,20261020 pos::numeral,sQ/@p5@]tx
-3,三,sān,,,,,20261020 pos::numeral,"O>j`M*e,g3"
-4,四,sì,,,,,20261020 pos::numeral,EaV0}d6]dn
-5,五,wǔ,,,,,20261020 pos::numeral,BE_CtcG>[6
-6,六,liù,,,,,20261020 pos::numeral,whk+7FZcJ`
-7,七,qī,,,,,20261020 pos::numeral,LSyGjRGKlY
-8,八,bā,,,,,20261020 pos::numeral,N+i<hrQP~q
-9,九,jiǔ,,,,,20261020 pos::numeral,qUBOPX-sL3
-10,十,shí,,,,,20261020 pos::numeral,H|eiDO+=0L
-Ty,你,nǐ,你好。,Nǐ hǎo,Cześć,,20261022 pos::pronoun,c6d=>:Ymy8
-Ty (forma grzecznościowa),您,nín,您好。,Nín hǎo,Cześć,,20261022 pos::pronoun,ydM3@dX!jt
-Dobrze; dobry,好,hǎo,,,,,20261022 pos::adjective,m{+TjFO%;{
-Ja,我,wǒ,,,,,20261022 pos::pronoun,oo>!8c-swU
-Bardzo,很,hěn,我很好。,Wǒ hěn hǎo,Mam się dobrze.,,20261022 pos::adverb,fJcw:!bM;.
-Też,也,yě,我也很好。,Wǒ yě hěn hǎo,Też mam się dobrze.,,20261022 pos::adverb,yG*O$?W]u#
-"A……?
+Lesson,Definition,WordSimplified,WordPinyin,SentenceSimplified,SentencePinyin,SentenceTranslation,Image,Tags,Guid
+1,0,零,líng,,,,,20261020 pos::numeral,PopR*:Hb$b
+1,1,一,yī,,,,,20261020 pos::numeral,Einjw)NR95
+1,2,二,èr,,,,,20261020 pos::numeral,sQ/@p5@]tx
+1,3,三,sān,,,,,20261020 pos::numeral,"O>j`M*e,g3"
+1,4,四,sì,,,,,20261020 pos::numeral,EaV0}d6]dn
+1,5,五,wǔ,,,,,20261020 pos::numeral,BE_CtcG>[6
+1,6,六,liù,,,,,20261020 pos::numeral,whk+7FZcJ`
+1,7,七,qī,,,,,20261020 pos::numeral,LSyGjRGKlY
+1,8,八,bā,,,,,20261020 pos::numeral,N+i<hrQP~q
+1,9,九,jiǔ,,,,,20261020 pos::numeral,qUBOPX-sL3
+1,10,十,shí,,,,,20261020 pos::numeral,H|eiDO+=0L
+1,Ty,你,nǐ,你好。,Nǐ hǎo,Cześć,,20261022 pos::pronoun,c6d=>:Ymy8
+1,Ty (forma grzecznościowa),您,nín,您好。,Nín hǎo,Cześć,,20261022 pos::pronoun,ydM3@dX!jt
+1,Dobrze; dobry,好,hǎo,,,,,20261022 pos::adjective,m{+TjFO%;{
+1,Ja,我,wǒ,,,,,20261022 pos::pronoun,oo>!8c-swU
+1,Bardzo,很,hěn,我很好。,Wǒ hěn hǎo,Mam się dobrze.,,20261022 pos::adverb,fJcw:!bM;.
+1,Też,也,yě,我也很好。,Wǒ yě hěn hǎo,Też mam się dobrze.,,20261022 pos::adverb,yG*O$?W]u#
+1,"A……?
 Wyraża pytanie zwrotne, dodawana na końcu zdania.",呢,ne,你呢,Nǐ ne?,A ty?,,20261022 pos::particle,bb6W5Cg#6A
-"Czy……?
+1,"Czy……?
 Tworzy pytania typu „tak/nie”, dodawana na końcu zdania.",吗,ma,你好吗？,Nǐ hǎo ma?,Jak się masz?,,20261022 pos::particle,H5Lq7XZO^X
-74,七十四,qī shí sì,,,,,20261022 pos::numeral,C{V+K=#y*f
-50,五十,wǔ shí,,,,,20261022 pos::numeral,M.l&T7m7k-
-Dziękuję,谢谢,xièxie,,,,,20261027 pos::verb,G5(WjPBs)N
-Nie (zaprzeczenie),不,bù,,,,,20261027 pos::adverb,dz1k>xrDA.
-Trzeba,用,yòng,,,,,20261027 pos::verb,L]2@ASAPV]
-Nie trzeba,不用,búyòng,,,,,20261027 pos::adverb,mI_f%x`32t
-Nie ma za co,不用谢,búyòngxiè,,,,,20261027 pos::phrase,yh`s%W=MCG
-Do widzenia,再见,zàijiàn,,,,,20261027 pos::phrase,jKDlN1gY[@
-Nazywać się; mieć na imię,叫,jiào,我叫李月。,Wǒ jiào Lǐ Yuè.,Nazywam się Li Yue.,,20261027 pos::verb,"q~i,7V(&nZ"
-Co; jaki,什么,shénme,你叫什么名字？,Nǐ jiào shénme míngzì?,Jak się nazywasz?,,20261027 pos::pronoun,i-GX;bHJ!;
-Imię,名字,míngzì,你叫什么名字？,Nǐ jiào shénme míngzì?,Jak się nazywasz?,,20261027 pos::noun,MdclfM/~{!
-Być,是,shì,我是学生。,Wǒ shì xuésheng.,Jestem studentem.,,20261027 pos::verb,Ms>qa`nn#>
-Nauczyciel,老师,lǎoshī,你是老师吗？,Nǐ shì lǎoshī ma?,Czy jesteś nauczycielem?,,20261027 pos::noun,n9:q9bu>;L
-Student; uczeń,学生,xuésheng,我不是老师，我是学生。,"Wǒ bú shì lǎoshī, wǒ shì xuésheng.","Nie jestem nauczycielem, jestem studentem.",,20261027 pos::noun,hk0F2f@x+w
-Człowiek; osoba,人,rén,你是中国人吗？,Nǐ shì Zhōngguórén ma?,Czy jesteś Chińczykiem?,,20261027 pos::noun,I5o[)/UjL~
-Kraj,国,guó,,,,,20261027 pos::noun,b?rqp0St8!
-Chiny,中国,Zhōngguó,他是中国人。,Tā shì Zhōngguórén.,On jest Chińczykiem.,,20261027 pos::noun,uZ8ns)ZY}e
-Stany Zjednoczone,美国,Měiguó,,,,,20261027 pos::noun,nfeCvvnb2=
-Polska,波兰,Bōlán,,,,,20261027 pos::noun,Kt!Ei&pEbm
-Chińczyk; Chinka,中国人,Zhōngguórén,我不是中国人，我是波兰人。,"Wǒ bú shì Zhōngguórén, wǒ shì Bōlánrén.","Nie jestem Chińczykiem, jestem Polakiem.",,20261027 pos::noun,"m|e,J}34VV"
-Amerykanin; Amerykanka,美国人,Měiguórén,他是美国人吗？,Tā shì Měiguórén ma?,Czy on jest Amerykaninem?,,20261027 pos::noun,G%V1yC/lp+
-Polak; Polka,波兰人,Bōlánrén,我是波兰人。,Wǒ shì Bōlánrén.,Jestem Polakiem.,,20261027 pos::noun,kadrmCSH[R
-Który,哪,nǎ,你是哪国人？,Nǐ shì nǎ guó rén?,Skąd jesteś? (Z jakiego kraju?),,20261027 pos::pronoun,c<6H@(9&m]
-Który kraj,哪国,nǎ guó,他是哪国人？,Tā shì nǎ guó rén?,Skąd on jest? (Z jakiego kraju?),,20261027 pos::phrase,nF1aj2`4uS
-Li Yue (imię),李月,Lǐ Yuè,她叫李月。,Tā jiào Lǐ Yuè.,Ona ma na imię Li Yue.,,20261027 pos::noun,iV!aY|P=[}
-Ona,她,tā,她是老师。,Tā shì lǎoshī.,Ona jest nauczycielką.,,20261027 pos::pronoun,t1;-b%L1Gw
-On,他,tā,他是波兰人。,Tā shì Bōlánrén.,On jest Polakiem.,,20261027 pos::pronoun,uA6ExvZD&M
-Kto,谁,shéi,她是谁？,Tā shì shéi?,Kim ona jest?,,20261103 pos::pronoun,uvsV+>oDp-
-Kolega / koleżanka z klasy,同学,tóngxué,他是我同学。,Tā shì wǒ tóngxué.,On jest moim kolegą z klasy.,,20261103 pos::noun,C@D25r@IId
-Przyjaciel,朋友,péngyou,她不是我同学，她是我朋友。,"Tā bú shì wǒ tóngxué, tā shì wǒ péngyou.","Ona nie jest moją koleżanką z klasy, jest moją przyjaciółką.",,20261103 pos::noun,Ajf~O9d_p-
-Partykuła wskazująca przynależność,的,de,他是我的朋友。,Tā shì wǒ de péngyou.,On jest moim przyjacielem.,,20261103 pos::particle,v0Xch0-yK=
-Mój,我的,wǒ de,我的老师是中国人。,Wǒ de lǎoshī shì Zhōngguórén.,Mój nauczyciel jest Chińczykiem.,,20261103 pos::pronoun,"PIN,lcAHh)"
-Twój,你的,nǐ de,你的老师是谁？,Nǐ de lǎoshī shì shéi?,Kto jest twoim nauczycielem?,,20261103 pos::pronoun,izF_/*hPWV
-Jego,他的,tā de,他的朋友是美国人。,Tā de péngyou shì Měiguórén.,Jego przyjaciel jest Amerykaninem.,,20261103 pos::pronoun,ucyu<m(MGJ
-Jej,她的,tā de,她的老师是波兰人。,Tā de lǎoshī shì Bōlánrén.,Jej nauczyciel jest Polakiem.,,20261103 pos::pronoun,kU:u$v+1?m
-Czyj,谁的,shéi de,她是谁的老师？,Tā shì shéi de lǎoshī?,Czyją nauczycielką ona jest?,,20261103 pos::pronoun,Mh5+-WnI5u
-Język chiński,汉语,Hànyǔ,她是我的汉语老师。,Tā shì wǒ de Hànyǔ lǎoshī.,Ona jest moją nauczycielką chińskiego.,,20261103 pos::noun,"qV0yBa,[8^"
-Mówić,说,shuō,你说汉语吗？,Nǐ shuō Hànyǔ ma?,Czy mówisz po chińsku?,,20261103 pos::verb,dX&F~:_iT>
-Partykuła liczby mnogiej,们,men,他们是我朋友。,Tāmen shì wǒ péngyou.,Oni są moimi przyjaciółmi.,,20261103 pos::particle,B9k.t=cN{o
-My,我们,wǒmen,我们是学生。,Wǒmen shì xuésheng.,Jesteśmy studentami.,,20261103 pos::pronoun,mx&_PRM-s:
-Wy,你们,nǐmen,你们是哪国人？,Nǐmen shì nǎ guó rén?,Skąd jesteście?,,20261103 pos::pronoun,rlndJ$dS8Q
-Oni,他们,tāmen,他们是谁？,Tāmen shì shéi?,Kim oni są?,,20261103 pos::pronoun,NNZ`)Wj5jv
-One,她们,tāmen,她们是我的同学。,Tāmen shì wǒ de tóngxué.,One są moimi koleżankami z klasy.,,20261103 pos::pronoun,"Dw?s,R9KLn"
-Wielka Brytania,英国,Yīngguó,他是英国人。,Tā shì Yīngguórén.,On jest Brytyjczykiem.,,20261103 pos::noun extra,x#7ugpKDz&
-Francja,法国,Fǎguó,她是法国人吗？,Tā shì Fǎguórén ma?,Czy ona jest Francuzką?,,20261103 pos::noun extra,A[8gmznY!`
-Niemcy,德国,Déguó,我的朋友是德国人。,Wǒ de péngyou shì Déguórén.,Mój przyjaciel jest Niemcem.,,20261103 pos::noun extra,ib5&j{&<Dh
-Rosja,俄罗斯,Éluósī,他不是俄罗斯人。,Tā bú shì Éluósīrén.,On nie jest Rosjaninem.,,20261103 pos::noun extra,"ql_6.GQ,pM"
-Ukraina,乌克兰,Wūkèlán,她是乌克兰人。,Tā shì Wūkèlánrén.,Ona jest Ukrainką.,,20261103 pos::noun extra,ixQa5#t@N;
-Japonia,日本,Rìběn,你是日本人吗？,Nǐ shì Rìběnrén ma?,Czy jesteś Japończykiem?,,20261103 pos::noun extra,y[s!FeuRUN
-Wietnam,越南,Yuènán,我们不是越南人。,Wǒmen bú shì Yuènánrén.,Nie jesteśmy Wietnamczykami.,,20261103 pos::noun extra,jDdYU1:O[S
-Koledzy / koleżanki z klasy,同学们,tóngxué men,同学们好！,Tóngxué men hǎo!,Dzień dobry wszystkim! (do grupy),,20261110 pos::noun,jq4q)*?=m-
-Przyjaciele,朋友们,péngyou men,朋友们好！,Péngyou men hǎo!,"Witajcie, przyjaciele!",,20261110 pos::noun,m-V/ZUrcF+
-Nasz,我们的,wǒmen de,她是我们的汉语老师。,Tā shì wǒmen de Hànyǔ lǎoshī.,Ona jest naszą nauczycielką chińskiego.,,20261110 pos::pronoun,E~bAjYH+U&
-Wasz,你们的,nǐmen de,你们的老师是谁？,Nǐmen de lǎoshī shì shéi?,Kto jest waszym nauczycielem?,,20261110 pos::pronoun,j3Z.qfkS@q
-Ich (męskoosobowe),他们的,tāmen de,他们的老师是中国人。,Tāmen de lǎoshī shì Zhōngguórén.,Ich nauczyciel jest Chińczykiem.,,20261110 pos::pronoun,qJvvJ(c-V/
-Ich (niemęskoosobowe),她们的,tāmen de,她们的朋友是美国人。,Tāmen de péngyou shì Měiguórén.,Ich przyjaciel jest Amerykaninem.,,20261110 pos::pronoun,hD:8ueWC~o
-Czy…? (pytanie „jest czy nie jest”),是不是,shìbushì,你是不是学生？,Nǐ shìbushì xuésheng?,Jesteś studentem (czy nie)?,,20261110 pos::phrase,P_vXf.$LUe
-Dobry przyjaciel,好朋友,hǎo péngyou,他是我的好朋友。,Tā shì wǒ de hǎo péngyou.,On jest moim dobrym przyjacielem.,,20261110 pos::phrase,DmS4X0K2Np
-Męski (płeć),男,nán,他是男老师。,Tā shì nán lǎoshī.,On jest nauczycielem (mężczyzną).,,20261110 pos::adjective,krX.lHHhfY
-Żeński (płeć),女,nǚ,我的汉语老师是女老师。,Wǒ de Hànyǔ lǎoshī shì nǚ lǎoshī.,Moja nauczycielka chińskiego jest kobietą.,,20261110 pos::adjective,"m-fa#,BW?c"
-Mężczyzna,男人,nánrén,他是好男人。,Tā shì hǎo nánrén.,On jest dobrym mężczyzną.,,20261110 pos::noun,rk1GH#4{_Q
-Kobieta,女人,nǚrén,她是中国女人。,Tā shì Zhōngguó nǚrén.,Ona jest Chinką.,,20261110 pos::noun,n*x8&29k-/
-Chłopiec,男孩,nánhái,她有一个男孩。,Tā yǒu yí gè nánhái.,Ona ma synka.,,20261110 pos::noun,I]XZ$&^|=J
-Dziewczynka,女孩,nǚhái,李月是中国女孩。,Lǐ Yuè shì Zhōngguó nǚhái.,Li Yue jest dziewczyną z Chin.,,20261110 pos::noun,zaA`U3H|Fw
-Mężczyzna (potocznie: „ten męski”),男的,nán de,你的汉语老师是男的吗？,Nǐ de Hànyǔ lǎoshī shì nán de ma?,Czy twój nauczyciel chińskiego to mężczyzna?,,20261110 pos::noun,vH}+U-f6^^
-Kobieta (potocznie: „ta żeńska”),女的,nǚ de,李老师是女的。,Lǐ lǎoshī shì nǚ de.,Nauczyciel Li to kobieta.,,20261110 pos::noun,Khu>3[f7:o
-Chłopak (partner),男朋友,nán péngyou,她有男朋友吗？,Tā yǒu nán péngyou ma?,Czy ona ma chłopaka?,,20261110 pos::noun,gU}e$M`;k9
-Dziewczyna (partnerka),女朋友,nǚ péngyou,她是我女朋友。,Tā shì wǒ nǚ péngyou.,Ona jest moją dziewczyną.,,20261110 pos::noun,*hEJcHm`;
-Kolega / koleżanka z pracy,同事,tóngshì,他是我同事，不是我朋友。,"Tā shì wǒ tóngshì, bú shì wǒ péngyou.","On jest moim kolegą z pracy, nie przyjacielem.",,20261110 pos::noun,F#{V}+*0!W
-Mieć,有,yǒu,我有三个中国朋友。,Wǒ yǒu sān gè Zhōngguó péngyou.,Mam trzech chińskich przyjaciół.,,20261110 pos::verb,CTQD(H7lpf
-Nie mieć,没有,méiyǒu,我没有哥哥。,Wǒ méiyǒu gēge.,Nie mam starszego brata.,,20261110 pos::verb,E@FJfh2IS&
-"Klasyfikator (ogólny, m.in. dla osób)",个,gè,你有几个中国朋友？,Nǐ yǒu jǐ gè Zhōngguó péngyou?,Ilu masz chińskich przyjaciół?,,20261110 pos::measure-word,J%k?$qo9|O
-Rodzina; dom,家,jiā,我爱我家。,Wǒ ài wǒ jiā.,Kocham moją rodzinę.,,20261110 pos::noun,vT9wR2s!L;
-Klasyfikator (członkowie rodziny),口,kǒu,我家有三口人。,Wǒ jiā yǒu sān kǒu rén.,Moja rodzina liczy trzy osoby.,,20261110 pos::measure-word,"I)ML,:c=H?"
-Ile (dla liczb poniżej 10),几,jǐ,你家有几口人？,Nǐ jiā yǒu jǐ kǒu rén?,Ile osób liczy twoja rodzina?,,20261110 pos::pronoun,tx1%rFU>3p
-Córka,女儿,nǚ'ér,我女儿四岁。,Wǒ nǚ'ér sì suì.,Moja córka ma cztery lata.,,20261110 pos::noun,AEC_t0jn*t
-Syn,儿子,érzi,他儿子十岁。,Tā érzi shí suì.,Jego syn ma dziesięć lat.,,20261110 pos::noun,r<RI;n<A!<
-Lat (wiek),岁,suì,我今年二十岁。,Wǒ jīnnián èrshí suì.,W tym roku kończę dwadzieścia lat.,,20261110 pos::measure-word,JBFlQESeg=
-Ile lat (o dzieciach),几岁,jǐsuì,你女儿几岁？,Nǐ nǚ'ér jǐsuì?,Ile lat ma twoja córka?,,20261110 pos::phrase,I+@.z3QWj9
-Duży,大,dà,中国很大。,Zhōngguó hěn dà.,Chiny są duże.,,20261110 pos::adjective,"n21S)v%d,C"
-Dużo; wiele,多,duō,中国人很多。,Zhōngguórén hěn duō.,Chińczyków jest bardzo dużo.,,20261110 pos::adjective,E{DE*d;9oK
-Ile lat?; jak duży?,多大,duōdà,你今年多大？,Nǐ jīnnián duōdà?,Ile masz lat?,,20261110 pos::phrase,i8a?V|DL^^
-"Wiek (grzecznie, o starszych)",岁数,suìshu,李老师今年多大岁数？,Lǐ lǎoshī jīnnián duōdà suìshu?,Ile lat ma nauczyciel Li?,,20261110 pos::noun,C/FZhDCdH6
-Kochać; miłość,爱,ài,你爱波兰吗？,Nǐ ài Bōlán ma?,Czy kochasz Polskę?,,20261110 pos::verb,FP_R0R4?)<
-Rok,年,nián,,,,,20261110 pos::noun,EoMmWsMBeb
-Ten rok; w tym roku,今年,jīnnián,李老师今年六十五岁。,Lǐ lǎoshī jīnnián liùshíwǔ suì.,Nauczyciel Li ma w tym roku sześćdziesiąt pięć lat.,,20261110 pos::noun,Gl#>PVT!(g
-Ile,多少,duōshao,你有多少朋友？,Nǐ yǒu duōshao péngyou?,Ilu masz przyjaciół?,,20261110 pos::pronoun,"HMZf<~Q,~u"
-Tata,爸爸,bàba,我爸爸是老师。,Wǒ bàba shì lǎoshī.,Mój tata jest nauczycielem.,,20261110 pos::noun,BAp4+>aM.g
-Mama,妈妈,māma,你妈妈今年多大？,Nǐ māma jīnnián duōdà?,Ile lat ma twoja mama?,,20261110 pos::noun,B8jz>i~e7~
-Starszy brat,哥哥,gēge,你有几个哥哥？,Nǐ yǒu jǐ gè gēge?,Ilu masz starszych braci?,,20261110 pos::noun,oA|)RChLkP
-Młodszy brat,弟弟,dìdi,我弟弟是学生。,Wǒ dìdi shì xuésheng.,Mój młodszy brat jest studentem.,,20261110 pos::noun,kW-_ut(wmT
-Starsza siostra,姐姐,jiějie,我没有姐姐。,Wǒ méiyǒu jiějie.,Nie mam starszej siostry.,,20261110 pos::noun,fEdnH!]A}M
-Młodsza siostra,妹妹,mèimei,我妹妹八岁。,Wǒ mèimei bā suì.,Moja młodsza siostra ma osiem lat.,,20261110 pos::noun,OrEskoVRl{
+1,74,七十四,qī shí sì,,,,,20261022 pos::numeral,C{V+K=#y*f
+1,50,五十,wǔ shí,,,,,20261022 pos::numeral,M.l&T7m7k-
+2,Dziękuję,谢谢,xièxie,,,,,20261027 pos::verb,G5(WjPBs)N
+2,Nie (zaprzeczenie),不,bù,,,,,20261027 pos::adverb,dz1k>xrDA.
+2,Trzeba,用,yòng,,,,,20261027 pos::verb,L]2@ASAPV]
+2,Nie trzeba,不用,búyòng,,,,,20261027 pos::adverb,mI_f%x`32t
+2,Nie ma za co,不用谢,búyòngxiè,,,,,20261027 pos::phrase,yh`s%W=MCG
+2,Do widzenia,再见,zàijiàn,,,,,20261027 pos::phrase,jKDlN1gY[@
+3,Nazywać się; mieć na imię,叫,jiào,我叫李月。,Wǒ jiào Lǐ Yuè.,Nazywam się Li Yue.,,20261027 pos::verb,"q~i,7V(&nZ"
+3,Co; jaki,什么,shénme,你叫什么名字？,Nǐ jiào shénme míngzì?,Jak się nazywasz?,,20261027 pos::pronoun,i-GX;bHJ!;
+3,Imię,名字,míngzì,你叫什么名字？,Nǐ jiào shénme míngzì?,Jak się nazywasz?,,20261027 pos::noun,MdclfM/~{!
+3,Być,是,shì,我是学生。,Wǒ shì xuésheng.,Jestem studentem.,,20261027 pos::verb,Ms>qa`nn#>
+3,Nauczyciel,老师,lǎoshī,你是老师吗？,Nǐ shì lǎoshī ma?,Czy jesteś nauczycielem?,,20261027 pos::noun,n9:q9bu>;L
+3,Student; uczeń,学生,xuésheng,我不是老师，我是学生。,"Wǒ bú shì lǎoshī, wǒ shì xuésheng.","Nie jestem nauczycielem, jestem studentem.",,20261027 pos::noun,hk0F2f@x+w
+3,Człowiek; osoba,人,rén,你是中国人吗？,Nǐ shì Zhōngguórén ma?,Czy jesteś Chińczykiem?,,20261027 pos::noun,I5o[)/UjL~
+3,Kraj,国,guó,,,,,20261027 pos::noun,b?rqp0St8!
+3,Chiny,中国,Zhōngguó,他是中国人。,Tā shì Zhōngguórén.,On jest Chińczykiem.,,20261027 pos::noun,uZ8ns)ZY}e
+3,Stany Zjednoczone,美国,Měiguó,,,,,20261027 pos::noun,nfeCvvnb2=
+3,Polska,波兰,Bōlán,,,,,20261027 pos::noun,Kt!Ei&pEbm
+3,Chińczyk; Chinka,中国人,Zhōngguórén,我不是中国人，我是波兰人。,"Wǒ bú shì Zhōngguórén, wǒ shì Bōlánrén.","Nie jestem Chińczykiem, jestem Polakiem.",,20261027 pos::noun,"m|e,J}34VV"
+3,Amerykanin; Amerykanka,美国人,Měiguórén,他是美国人吗？,Tā shì Měiguórén ma?,Czy on jest Amerykaninem?,,20261027 pos::noun,G%V1yC/lp+
+3,Polak; Polka,波兰人,Bōlánrén,我是波兰人。,Wǒ shì Bōlánrén.,Jestem Polakiem.,,20261027 pos::noun,kadrmCSH[R
+3,Który,哪,nǎ,你是哪国人？,Nǐ shì nǎ guó rén?,Skąd jesteś? (Z jakiego kraju?),,20261027 pos::pronoun,c<6H@(9&m]
+3,Który kraj,哪国,nǎ guó,他是哪国人？,Tā shì nǎ guó rén?,Skąd on jest? (Z jakiego kraju?),,20261027 pos::phrase,nF1aj2`4uS
+3,Li Yue (imię),李月,Lǐ Yuè,她叫李月。,Tā jiào Lǐ Yuè.,Ona ma na imię Li Yue.,,20261027 pos::noun,iV!aY|P=[}
+3,Ona,她,tā,她是老师。,Tā shì lǎoshī.,Ona jest nauczycielką.,,20261027 pos::pronoun,t1;-b%L1Gw
+3,On,他,tā,他是波兰人。,Tā shì Bōlánrén.,On jest Polakiem.,,20261027 pos::pronoun,uA6ExvZD&M
+4,Kto,谁,shéi,她是谁？,Tā shì shéi?,Kim ona jest?,,20261103 pos::pronoun,uvsV+>oDp-
+4,Kolega / koleżanka z klasy,同学,tóngxué,他是我同学。,Tā shì wǒ tóngxué.,On jest moim kolegą z klasy.,,20261103 pos::noun,C@D25r@IId
+4,Przyjaciel,朋友,péngyou,她不是我同学，她是我朋友。,"Tā bú shì wǒ tóngxué, tā shì wǒ péngyou.","Ona nie jest moją koleżanką z klasy, jest moją przyjaciółką.",,20261103 pos::noun,Ajf~O9d_p-
+4,Partykuła wskazująca przynależność,的,de,他是我的朋友。,Tā shì wǒ de péngyou.,On jest moim przyjacielem.,,20261103 pos::particle,v0Xch0-yK=
+4,Mój,我的,wǒ de,我的老师是中国人。,Wǒ de lǎoshī shì Zhōngguórén.,Mój nauczyciel jest Chińczykiem.,,20261103 pos::pronoun,"PIN,lcAHh)"
+4,Twój,你的,nǐ de,你的老师是谁？,Nǐ de lǎoshī shì shéi?,Kto jest twoim nauczycielem?,,20261103 pos::pronoun,izF_/*hPWV
+4,Jego,他的,tā de,他的朋友是美国人。,Tā de péngyou shì Měiguórén.,Jego przyjaciel jest Amerykaninem.,,20261103 pos::pronoun,ucyu<m(MGJ
+4,Jej,她的,tā de,她的老师是波兰人。,Tā de lǎoshī shì Bōlánrén.,Jej nauczyciel jest Polakiem.,,20261103 pos::pronoun,kU:u$v+1?m
+4,Czyj,谁的,shéi de,她是谁的老师？,Tā shì shéi de lǎoshī?,Czyją nauczycielką ona jest?,,20261103 pos::pronoun,Mh5+-WnI5u
+4,Język chiński,汉语,Hànyǔ,她是我的汉语老师。,Tā shì wǒ de Hànyǔ lǎoshī.,Ona jest moją nauczycielką chińskiego.,,20261103 pos::noun,"qV0yBa,[8^"
+4,Mówić,说,shuō,你说汉语吗？,Nǐ shuō Hànyǔ ma?,Czy mówisz po chińsku?,,20261103 pos::verb,dX&F~:_iT>
+4,Partykuła liczby mnogiej,们,men,他们是我朋友。,Tāmen shì wǒ péngyou.,Oni są moimi przyjaciółmi.,,20261103 pos::particle,B9k.t=cN{o
+4,My,我们,wǒmen,我们是学生。,Wǒmen shì xuésheng.,Jesteśmy studentami.,,20261103 pos::pronoun,mx&_PRM-s:
+4,Wy,你们,nǐmen,你们是哪国人？,Nǐmen shì nǎ guó rén?,Skąd jesteście?,,20261103 pos::pronoun,rlndJ$dS8Q
+4,Oni,他们,tāmen,他们是谁？,Tāmen shì shéi?,Kim oni są?,,20261103 pos::pronoun,NNZ`)Wj5jv
+4,One,她们,tāmen,她们是我的同学。,Tāmen shì wǒ de tóngxué.,One są moimi koleżankami z klasy.,,20261103 pos::pronoun,"Dw?s,R9KLn"
+3,Wielka Brytania,英国,Yīngguó,他是英国人。,Tā shì Yīngguórén.,On jest Brytyjczykiem.,,20261103 pos::noun extra,x#7ugpKDz&
+3,Francja,法国,Fǎguó,她是法国人吗？,Tā shì Fǎguórén ma?,Czy ona jest Francuzką?,,20261103 pos::noun extra,A[8gmznY!`
+3,Niemcy,德国,Déguó,我的朋友是德国人。,Wǒ de péngyou shì Déguórén.,Mój przyjaciel jest Niemcem.,,20261103 pos::noun extra,ib5&j{&<Dh
+3,Rosja,俄罗斯,Éluósī,他不是俄罗斯人。,Tā bú shì Éluósīrén.,On nie jest Rosjaninem.,,20261103 pos::noun extra,"ql_6.GQ,pM"
+3,Ukraina,乌克兰,Wūkèlán,她是乌克兰人。,Tā shì Wūkèlánrén.,Ona jest Ukrainką.,,20261103 pos::noun extra,ixQa5#t@N;
+3,Japonia,日本,Rìběn,你是日本人吗？,Nǐ shì Rìběnrén ma?,Czy jesteś Japończykiem?,,20261103 pos::noun extra,y[s!FeuRUN
+3,Wietnam,越南,Yuènán,我们不是越南人。,Wǒmen bú shì Yuènánrén.,Nie jesteśmy Wietnamczykami.,,20261103 pos::noun extra,jDdYU1:O[S
+4,Koledzy / koleżanki z klasy,同学们,tóngxué men,同学们好！,Tóngxué men hǎo!,Dzień dobry wszystkim! (do grupy),,20261110 pos::noun,jq4q)*?=m-
+4,Przyjaciele,朋友们,péngyou men,朋友们好！,Péngyou men hǎo!,"Witajcie, przyjaciele!",,20261110 pos::noun,m-V/ZUrcF+
+4,Nasz,我们的,wǒmen de,她是我们的汉语老师。,Tā shì wǒmen de Hànyǔ lǎoshī.,Ona jest naszą nauczycielką chińskiego.,,20261110 pos::pronoun,E~bAjYH+U&
+4,Wasz,你们的,nǐmen de,你们的老师是谁？,Nǐmen de lǎoshī shì shéi?,Kto jest waszym nauczycielem?,,20261110 pos::pronoun,j3Z.qfkS@q
+4,Ich (męskoosobowe),他们的,tāmen de,他们的老师是中国人。,Tāmen de lǎoshī shì Zhōngguórén.,Ich nauczyciel jest Chińczykiem.,,20261110 pos::pronoun,qJvvJ(c-V/
+4,Ich (niemęskoosobowe),她们的,tāmen de,她们的朋友是美国人。,Tāmen de péngyou shì Měiguórén.,Ich przyjaciel jest Amerykaninem.,,20261110 pos::pronoun,hD:8ueWC~o
+4,Czy…? (pytanie „jest czy nie jest”),是不是,shìbushì,你是不是学生？,Nǐ shìbushì xuésheng?,Jesteś studentem (czy nie)?,,20261110 pos::phrase,P_vXf.$LUe
+4,Dobry przyjaciel,好朋友,hǎo péngyou,他是我的好朋友。,Tā shì wǒ de hǎo péngyou.,On jest moim dobrym przyjacielem.,,20261110 pos::phrase,DmS4X0K2Np
+4,Męski (płeć),男,nán,他是男老师。,Tā shì nán lǎoshī.,On jest nauczycielem (mężczyzną).,,20261110 pos::adjective,krX.lHHhfY
+4,Żeński (płeć),女,nǚ,我的汉语老师是女老师。,Wǒ de Hànyǔ lǎoshī shì nǚ lǎoshī.,Moja nauczycielka chińskiego jest kobietą.,,20261110 pos::adjective,"m-fa#,BW?c"
+4,Mężczyzna,男人,nánrén,他是好男人。,Tā shì hǎo nánrén.,On jest dobrym mężczyzną.,,20261110 pos::noun,rk1GH#4{_Q
+4,Kobieta,女人,nǚrén,她是中国女人。,Tā shì Zhōngguó nǚrén.,Ona jest Chinką.,,20261110 pos::noun,n*x8&29k-/
+4,Chłopiec,男孩,nánhái,她有一个男孩。,Tā yǒu yí gè nánhái.,Ona ma synka.,,20261110 pos::noun,I]XZ$&^|=J
+4,Dziewczynka,女孩,nǚhái,李月是中国女孩。,Lǐ Yuè shì Zhōngguó nǚhái.,Li Yue jest dziewczyną z Chin.,,20261110 pos::noun,zaA`U3H|Fw
+4,Mężczyzna (potocznie: „ten męski”),男的,nán de,你的汉语老师是男的吗？,Nǐ de Hànyǔ lǎoshī shì nán de ma?,Czy twój nauczyciel chińskiego to mężczyzna?,,20261110 pos::noun,vH}+U-f6^^
+4,Kobieta (potocznie: „ta żeńska”),女的,nǚ de,李老师是女的。,Lǐ lǎoshī shì nǚ de.,Nauczyciel Li to kobieta.,,20261110 pos::noun,Khu>3[f7:o
+4,Chłopak (partner),男朋友,nán péngyou,她有男朋友吗？,Tā yǒu nán péngyou ma?,Czy ona ma chłopaka?,,20261110 pos::noun,gU}e$M`;k9
+4,Dziewczyna (partnerka),女朋友,nǚ péngyou,她是我女朋友。,Tā shì wǒ nǚ péngyou.,Ona jest moją dziewczyną.,,20261110 pos::noun,*hEJcHm`;
+4,Kolega / koleżanka z pracy,同事,tóngshì,他是我同事，不是我朋友。,"Tā shì wǒ tóngshì, bú shì wǒ péngyou.","On jest moim kolegą z pracy, nie przyjacielem.",,20261110 pos::noun,F#{V}+*0!W
+5,Mieć,有,yǒu,我有三个中国朋友。,Wǒ yǒu sān gè Zhōngguó péngyou.,Mam trzech chińskich przyjaciół.,,20261110 pos::verb,CTQD(H7lpf
+5,Nie mieć,没有,méiyǒu,我没有哥哥。,Wǒ méiyǒu gēge.,Nie mam starszego brata.,,20261110 pos::verb,E@FJfh2IS&
+5,"Klasyfikator (ogólny, m.in. dla osób)",个,gè,你有几个中国朋友？,Nǐ yǒu jǐ gè Zhōngguó péngyou?,Ilu masz chińskich przyjaciół?,,20261110 pos::measure-word,J%k?$qo9|O
+5,Rodzina; dom,家,jiā,我爱我家。,Wǒ ài wǒ jiā.,Kocham moją rodzinę.,,20261110 pos::noun,vT9wR2s!L;
+5,Klasyfikator (członkowie rodziny),口,kǒu,我家有三口人。,Wǒ jiā yǒu sān kǒu rén.,Moja rodzina liczy trzy osoby.,,20261110 pos::measure-word,"I)ML,:c=H?"
+5,Ile (dla liczb poniżej 10),几,jǐ,你家有几口人？,Nǐ jiā yǒu jǐ kǒu rén?,Ile osób liczy twoja rodzina?,,20261110 pos::pronoun,tx1%rFU>3p
+5,Córka,女儿,nǚ'ér,我女儿四岁。,Wǒ nǚ'ér sì suì.,Moja córka ma cztery lata.,,20261110 pos::noun,AEC_t0jn*t
+5,Syn,儿子,érzi,他儿子十岁。,Tā érzi shí suì.,Jego syn ma dziesięć lat.,,20261110 pos::noun,r<RI;n<A!<
+5,Lat (wiek),岁,suì,我今年二十岁。,Wǒ jīnnián èrshí suì.,W tym roku kończę dwadzieścia lat.,,20261110 pos::measure-word,JBFlQESeg=
+5,Ile lat (o dzieciach),几岁,jǐsuì,你女儿几岁？,Nǐ nǚ'ér jǐsuì?,Ile lat ma twoja córka?,,20261110 pos::phrase,I+@.z3QWj9
+5,Duży,大,dà,中国很大。,Zhōngguó hěn dà.,Chiny są duże.,,20261110 pos::adjective,"n21S)v%d,C"
+5,Dużo; wiele,多,duō,中国人很多。,Zhōngguórén hěn duō.,Chińczyków jest bardzo dużo.,,20261110 pos::adjective,E{DE*d;9oK
+5,Ile lat?; jak duży?,多大,duōdà,你今年多大？,Nǐ jīnnián duōdà?,Ile masz lat?,,20261110 pos::phrase,i8a?V|DL^^
+5,"Wiek (grzecznie, o starszych)",岁数,suìshu,李老师今年多大岁数？,Lǐ lǎoshī jīnnián duōdà suìshu?,Ile lat ma nauczyciel Li?,,20261110 pos::noun,C/FZhDCdH6
+5,Kochać; miłość,爱,ài,你爱波兰吗？,Nǐ ài Bōlán ma?,Czy kochasz Polskę?,,20261110 pos::verb,FP_R0R4?)<
+5,Rok,年,nián,,,,,20261110 pos::noun,EoMmWsMBeb
+5,Ten rok; w tym roku,今年,jīnnián,李老师今年六十五岁。,Lǐ lǎoshī jīnnián liùshíwǔ suì.,Nauczyciel Li ma w tym roku sześćdziesiąt pięć lat.,,20261110 pos::noun,Gl#>PVT!(g
+5,Ile,多少,duōshao,你有多少朋友？,Nǐ yǒu duōshao péngyou?,Ilu masz przyjaciół?,,20261110 pos::pronoun,"HMZf<~Q,~u"
+5,Tata,爸爸,bàba,我爸爸是老师。,Wǒ bàba shì lǎoshī.,Mój tata jest nauczycielem.,,20261110 pos::noun,BAp4+>aM.g
+5,Mama,妈妈,māma,你妈妈今年多大？,Nǐ māma jīnnián duōdà?,Ile lat ma twoja mama?,,20261110 pos::noun,B8jz>i~e7~
+5,Starszy brat,哥哥,gēge,你有几个哥哥？,Nǐ yǒu jǐ gè gēge?,Ilu masz starszych braci?,,20261110 pos::noun,oA|)RChLkP
+5,Młodszy brat,弟弟,dìdi,我弟弟是学生。,Wǒ dìdi shì xuésheng.,Mój młodszy brat jest studentem.,,20261110 pos::noun,kW-_ut(wmT
+5,Starsza siostra,姐姐,jiějie,我没有姐姐。,Wǒ méiyǒu jiějie.,Nie mam starszej siostry.,,20261110 pos::noun,fEdnH!]A}M
+5,Młodsza siostra,妹妹,mèimei,我妹妹八岁。,Wǒ mèimei bā suì.,Moja młodsza siostra ma osiem lat.,,20261110 pos::noun,OrEskoVRl{
+5,Dziadek (tata taty),爷爷,yéye,我爷爷今年八十岁。,Wǒ yéye jīnnián bāshí suì.,Mój dziadek ma w tym roku osiemdziesiąt lat.,,20261118 pos::noun extra,M(`i-G>j|t
+5,Babcia (mama taty),奶奶,nǎinai,我奶奶会游泳。,Wǒ nǎinai huì yóuyǒng.,Moja babcia umie pływać.,,20261118 pos::noun extra,kN{|!3Vi?A
+5,Dziadek (tata mamy),外公,wàigōng,我外公不会开车。,Wǒ wàigōng bú huì kāichē.,Mój dziadek nie umie prowadzić samochodu.,,20261118 pos::noun extra,FMMg{sQ9P1
+5,Babcia (mama mamy),外婆,wàipó,你外婆今年多大岁数？,Nǐ wàipó jīnnián duōdà suìshu?,Ile lat ma twoja babcia?,,20261118 pos::noun extra,eKVdoNc)EE
+5,Lubić,喜欢,xǐhuan,我喜欢中国菜。,Wǒ xǐhuan Zhōngguó cài.,Lubię chińskie jedzenie.,,20261118 pos::verb extra,ecjuc:UiP0
+5,W zeszłym roku,去年,qùnián,我女儿去年三岁。,Wǒ nǚ'ér qùnián sān suì.,Moja córka w zeszłym roku miała trzy lata.,,20261118 pos::noun extra,"Jn1aBt,j|U"
+5,W przyszłym roku,明年,míngnián,他明年十岁。,Tā míngnián shí suì.,W przyszłym roku on będzie miał dziesięć lat.,,20261118 pos::noun extra,"EH,,SW!rrT"
+5,"To (ten, ta)",这,zhè,这是我妈妈。,Zhè shì wǒ māma.,To jest moja mama.,,20261118 pos::pronoun extra,RfCs`koag)
+5,"Tamto (tamten, tamta)",那,nà,那是我的汉语老师。,Nà shì wǒ de Hànyǔ lǎoshī.,Tamto jest mój nauczyciel chińskiego.,,20261118 pos::pronoun extra,A1Qx<C(kh:
+6,Umieć (umiejętność wyuczona),会,huì,我会说汉语。,Wǒ huì shuō Hànyǔ.,Umiem mówić po chińsku.,,20261118 pos::verb,i(IOgobY;_
+6,Nie umieć,不会,búhuì,她不会说。,Tā bú huì shuō.,Ona nie umie mówić (po chińsku).,,20261118 pos::verb,b;XYS2]H0I
+6,Trochę,一点儿,yìdiǎnr,我会说一点儿汉语。,Wǒ huì shuō yìdiǎnr Hànyǔ.,Umiem mówić trochę po chińsku.,,20261118 pos::adverb,fE4ijVRSYg
+6,Danie; potrawa,菜,cài,你会做中国菜吗？,Nǐ huì zuò Zhōngguó cài ma?,Czy umiesz gotować chińskie dania?,,20261118 pos::noun,I8K}S<(*d(
+6,Smaczny (o jedzeniu),好吃,hǎochī,中国菜很好吃。,Zhōngguó cài hěn hǎochī.,Chińskie jedzenie jest bardzo smaczne.,,20261118 pos::adjective,zlk@`df*$w
+6,Robić,做,zuò,我妈妈会做中国菜。,Wǒ māma huì zuò Zhōngguó cài.,Moja mama umie gotować chińskie dania.,,20261118 pos::verb,P;&#j:WoJ
+6,Pisać,写,xiě,我会写。,Wǒ huì xiě.,Umiem pisać.,,20261118 pos::verb,vr?ZtuP9+~
+6,Znak,字,zì,这个字我会读，不会写。,"Zhège zì wǒ huì dú, bú huì xiě.","Ten znak umiem przeczytać, ale nie umiem napisać.",,20261118 pos::noun,Ed/{R8D.Hc
+6,Chiński znak,汉字,hànzì,我会写一点儿汉字。,Wǒ huì xiě yìdiǎnr hànzì.,Umiem napisać trochę chińskich znaków.,,20261118 pos::noun,F^1!f3qSxr
+6,Język chiński (pisany),中文,Zhōngwén,你的中文名字叫什么？,Nǐ de Zhōngwén míngzì jiào shénme?,Jak brzmi twoje chińskie imię?,,20261118 pos::noun,"fz.Zvhp4,J"
+6,Czytać (na głos),读,dú,你会读汉字吗？,Nǐ huì dú hànzì ma?,Czy umiesz czytać chińskie znaki?,,20261118 pos::verb,w&|~e:U#;G
+6,Jak,怎么,zěnme,你的名字怎么写？,Nǐ de míngzì zěnme xiě?,Jak się pisze twoje imię?,,20261118 pos::pronoun,"zs.k.J5M,t"
+6,Jak powiedzieć,怎么说,zěnme shuō,你的名字汉语怎么说？,Nǐ de míngzì Hànyǔ zěnme shuō?,Jak powiedzieć twoje imię po chińsku?,,20261118 pos::phrase,v~5.r$<}NV
+6,Jak przeczytać,怎么读,zěnme dú,这个字怎么读？,Zhège zì zěnme dú?,Jak się czyta ten znak?,,20261118 pos::phrase,Oul=AEtV(g
+6,Jak napisać,怎么写,zěnme xiě,这个字怎么写？,Zhège zì zěnme xiě?,Jak się pisze ten znak?,,20261118 pos::phrase,uLEi5G.>@&
+6,Jak zrobić,怎么做,zěnme zuò,中国菜怎么做？,Zhōngguó cài zěnme zuò?,Jak się robi chińskie dania?,,20261118 pos::phrase,bJ~k;stFJG
+6,Teraz,现在,xiànzài,我现在不能开车。,Wǒ xiànzài bù néng kāichē.,Teraz nie mogę prowadzić.,,20261118 pos::noun,t9ZAzmS(mj
+6,Prowadzić samochód,开车,kāichē,你会开车吗？,Nǐ huì kāichē ma?,Czy umiesz prowadzić samochód?,,20261118 pos::verb,thTSip2E%-
+6,Móc; być w stanie (w danej chwili),能,néng,你现在能开车吗？,Nǐ xiànzài néng kāichē ma?,Czy możesz teraz prowadzić?,,20261118 pos::verb,rnPNnG&y^q
+6,Pływać,游泳,yóuyǒng,你妈妈会游泳吗？,Nǐ māma huì yóuyǒng ma?,Czy twoja mama umie pływać?,,20261118 pos::verb,KSP.vMx<!@
+6,Ale,可是,kěshì,我会说汉语，可是不会写汉字。,"Wǒ huì shuō Hànyǔ, kěshì bú huì xiě hànzì.","Umiem mówić po chińsku, ale nie umiem pisać znaków.",,20261118 pos::conjunction,KZ>uk4G1x_
+6,Przepraszam,对不起,duì bu qǐ,对不起，我不会说汉语。,"Duì bu qǐ, wǒ bú huì shuō Hànyǔ.","Przepraszam, nie umiem mówić po chińsku.",,20261118 pos::phrase,e{jlm9E`7c

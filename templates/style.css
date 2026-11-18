@@ -56,3 +56,6 @@ hr#answer {
 .replay-button svg { width: 26px; height: 26px; }
 .replay-button svg circle { fill: transparent; stroke: var(--muted); }
 .replay-button svg path { fill: var(--fg); }
+
+/* sentence cards */
+.sentence-q { font-size: 40px; line-height: 1.4; }
