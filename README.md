@@ -14,6 +14,9 @@ Rows are split into subdecks by their `Lesson` column:
 
 ```
 IJC HSK1-1
+├── Komponenty        radicals (klucze) and other character components
+│   ├── Lekcja 1
+│   └── …
 ├── Słowa
 │   ├── Lekcja 1
 │   ├── Lekcja 2
@@ -122,6 +125,24 @@ pinyin doesn't contain the word pinyin.
 | `AnswerTranslation` | | |
 | `Tags` | | Same as for words; `sentence` is added automatically |
 | `Guid` | | Leave empty, CI fills it in. Changing `Question` makes a new note |
+
+### Components CSV (`<name>.components.csv`)
+
+Radicals (klucze, 部首) and other building blocks of the characters in the deck.
+
+| Column | Required | Notes |
+|---|---|---|
+| `Lesson` | | → `Komponenty::Lekcja N`; when empty: first lesson of its examples |
+| `Component` | ✅ | The component, e.g. `氵`; unique |
+| `Pinyin` | | Reading of the full form (`氵` → shuǐ) |
+| `Name` | | Polish name, e.g. *woda (trzy krople)* |
+| `Type` | | `piktogram`, `ideogram prosty`, `ideogram złożony`, `fonosemantyczny` or `niejasny` (origin disputed) → tag `rodzaj::…` |
+| `Forms` | | Variants, e.g. `水 → 氵 po lewej stronie znaku` (simplified characters only) |
+| `Kangxi` | | Number of the Kangxi radical (1–214), if it is one |
+| `Role` | | `znaczeniowy` (meaning), `fonetyczny` (sound) or both (`znaczeniowy / fonetyczny`) → tag `rola::…` |
+| `Hint` | | What it usually signals in characters |
+| `Examples` | | Characters containing it, e.g. `汉 波 法`; each must occur in a word of the deck, which the card shows next to it |
+| `Tags`, `Guid` | | As for words |
 
 ## Importing notes from Anki
 

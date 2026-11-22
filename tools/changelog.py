@@ -19,16 +19,22 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from build import FIELDS, SENTENCE_FIELDS, deck_name, is_sentences_file, sniff_reader  # noqa: E402
+from build import (  # noqa: E402
+    COMPONENT_EXTRA, COMPONENT_FIELDS, FIELDS, SENTENCE_FIELDS, deck_name, file_kind, sniff_reader,
+)
 
 WORD_TRACKED = ["Lesson"] + FIELDS + ["Tags"]
 SENTENCE_TRACKED = ["Lesson"] + SENTENCE_FIELDS + ["Tags"]
+COMPONENT_TRACKED = ["Lesson"] + COMPONENT_FIELDS + COMPONENT_EXTRA + ["Tags"]
 
 
 def kind(name: str):
     """(key column, tracked columns, unit) for a CSV file name."""
-    if is_sentences_file(Path(name)):
+    kind_ = file_kind(Path(name))
+    if kind_ == "sentences":
         return "Question", SENTENCE_TRACKED, "sentences"
+    if kind_ == "components":
+        return "Component", COMPONENT_TRACKED, "components"
     return "WordSimplified", WORD_TRACKED, "words"
 STYLE_PATHS = ["templates"]
 BUILD_PATHS = ["build.py", "requirements.txt"]
@@ -69,6 +75,9 @@ def label(key: str, row: dict) -> str:
     if "Question" in row:
         t = row["QuestionTranslation"]
         return lesson + key + (f" — {t}" if t else "")
+    if "Component" in row:
+        name = " ".join(x for x in (row["Pinyin"], row["Name"]) if x)
+        return lesson + key + (f" {name}" if name else "")
     parts = [key]
     if row["WordPinyin"]:
         parts.append(row["WordPinyin"])
@@ -78,7 +87,7 @@ def label(key: str, row: dict) -> str:
 
 def deck_section(name: str, old: dict | None, new: dict | None) -> list[str]:
     _, tracked, unit = kind(name)
-    title = deck_name(Path(name)) + (" — zdania" if unit == "sentences" else "")
+    title = deck_name(Path(name)) + {"sentences": " — zdania", "components": " — komponenty"}.get(unit, "")
     if new is None:
         return [f"### {title} — removed ({len(old)} {unit})", ""]
     old = old or {}

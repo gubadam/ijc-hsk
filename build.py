@@ -3,10 +3,12 @@
 
 Every decks/<name>.csv (words) becomes its own deck (ijc_hsk1-1.csv -> "IJC HSK1-1")
 and its own dist/<name>.apkg. An optional decks/<name>.sentences.csv adds sentence
-cards to the same package. Rows with a Lesson number go to subdecks:
+cards and decks/<name>.components.csv radicals / character components to the
+same package. Rows with a Lesson number go to subdecks:
 
-    IJC HSK1-1::Słowa::Lekcja 3     words of lesson 3
-    IJC HSK1-1::Zdania::Lekcja 3    sentences of lesson 3
+    IJC HSK1-1::Słowa::Lekcja 3        words of lesson 3
+    IJC HSK1-1::Zdania::Lekcja 3       sentences of lesson 3
+    IJC HSK1-1::Komponenty::Lekcja 3   components first seen in lesson 3
 
 dist/ijc-hsk-all.apkg contains all decks at once.
 
@@ -40,12 +42,15 @@ ALL_PACKAGE = "ijc-hsk-all.apkg"
 # notes on re-import, so changing them creates duplicates instead of updates.
 MODEL_ID = 1735209647
 SENTENCE_MODEL_ID = 1735209648
+COMPONENT_MODEL_ID = 1735209649
 GUID_NAMESPACE = "ijc-hsk"
 
 SENTENCES_SUFFIX = ".sentences"
+COMPONENTS_SUFFIX = ".components"
 LESSON_DECK = "Lekcja {n}"
 WORDS_SUBDECK = "Słowa"
 SENTENCES_SUBDECK = "Zdania"
+COMPONENTS_SUBDECK = "Komponenty"
 
 FIELDS = [
     "Definition",
@@ -68,6 +73,27 @@ SENTENCE_FIELDS = [
     "AnswerTranslation",
 ]
 SENTENCE_REQUIRED = ["Question"]
+
+COMPONENT_FIELDS = [
+    "Component",
+    "Pinyin",
+    "Name",
+    "Forms",
+    "Kangxi",
+    "Role",
+    "Hint",
+    "Examples",   # rendered from the CSV's example characters
+]
+COMPONENT_EXTRA = ["Type"]   # CSV-only: rendered into the Role field and tags
+COMPONENT_COLUMNS = ["Lesson"] + COMPONENT_FIELDS + COMPONENT_EXTRA + ["Tags", "Guid"]
+COMPONENT_TYPES = {  # traditional six categories (六书), as far as they apply
+    "piktogram": "piktogram",
+    "ideogram prosty": "ideogram_prosty",
+    "ideogram złożony": "ideogram_złożony",
+    "fonosemantyczny": "fonosemantyczny",
+    "niejasny": "niejasny",
+}
+COMPONENT_ROLES = {"znaczeniowy", "fonetyczny"}
 
 HAN = re.compile("[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
 SPACE_BEFORE_PUNCT = re.compile(r"\s+([，。！？、；：,.!?;:)）」』])")
@@ -116,13 +142,48 @@ def build_sentence_model() -> genanki.Model:
     )
 
 
+def build_component_model() -> genanki.Model:
+    script = read_template("script.html")
+
+    def tpl(name: str) -> str:
+        return read_template(name).replace("<!-- SCRIPT -->", script)
+
+    return genanki.Model(
+        COMPONENT_MODEL_ID,
+        "IJC Chinese component",
+        fields=[{"name": f} for f in COMPONENT_FIELDS],
+        templates=[
+            {"name": "Komponent", "qfmt": tpl("component_front.html"), "afmt": tpl("component_back.html")},
+        ],
+        css=read_template("style.css"),
+        sort_field_index=0,
+    )
+
+
+def file_kind(csv_path: Path) -> str:
+    """'words', 'sentences' or 'components'."""
+    stem = csv_path.stem
+    if stem.endswith(SENTENCES_SUFFIX):
+        return "sentences"
+    if stem.endswith(COMPONENTS_SUFFIX):
+        return "components"
+    return "words"
+
+
 def is_sentences_file(csv_path: Path) -> bool:
-    return csv_path.stem.endswith(SENTENCES_SUFFIX)
+    return file_kind(csv_path) == "sentences"
+
+
+def is_components_file(csv_path: Path) -> bool:
+    return file_kind(csv_path) == "components"
 
 
 def base_stem(csv_path: Path) -> str:
     stem = csv_path.stem
-    return stem[: -len(SENTENCES_SUFFIX)] if stem.endswith(SENTENCES_SUFFIX) else stem
+    for suffix in (SENTENCES_SUFFIX, COMPONENTS_SUFFIX):
+        if stem.endswith(suffix):
+            return stem[: -len(suffix)]
+    return stem
 
 
 def deck_name(csv_path: Path) -> str:
@@ -135,7 +196,8 @@ def deck_name(csv_path: Path) -> str:
 
 def subdeck_name(csv_path: Path, lesson: str) -> str:
     base = deck_name(csv_path)
-    kind = SENTENCES_SUBDECK if is_sentences_file(csv_path) else WORDS_SUBDECK
+    kind = {"sentences": SENTENCES_SUBDECK, "components": COMPONENTS_SUBDECK}.get(
+        file_kind(csv_path), WORDS_SUBDECK)
     if not lesson:
         return f"{base}::{kind}"
     return f"{base}::{kind}::{LESSON_DECK.format(n=lesson)}"
@@ -148,6 +210,10 @@ def lesson_tag(lesson: str) -> list:
 
 def sentence_guid(question: str) -> str:
     return genanki.guid_for(GUID_NAMESPACE, "sentence", question)
+
+
+def component_guid(component: str) -> str:
+    return genanki.guid_for(GUID_NAMESPACE, "component", component)
 
 
 def capitalize_first(text: str) -> str:
@@ -221,11 +287,15 @@ def write_guids(csv_path: Path) -> list:
     added_column = "Guid" not in header
     if added_column:
         header.append("Guid")
-    sentences = is_sentences_file(csv_path)
+    kind = file_kind(csv_path)
+    key_col, make_guid = {
+        "sentences": ("Question", sentence_guid),
+        "components": ("Component", component_guid),
+    }.get(kind, ("WordSimplified", lambda w: genanki.guid_for(GUID_NAMESPACE, w)))
     for row in rows:
-        key = (row.get("Question" if sentences else "WordSimplified") or "").strip()
+        key = (row.get(key_col) or "").strip()
         if key and not (row.get("Guid") or "").strip():
-            row["Guid"] = sentence_guid(key) if sentences else genanki.guid_for(GUID_NAMESPACE, key)
+            row["Guid"] = make_guid(key)
             filled.append(key)
 
     if filled or (added_column and rows):
@@ -265,7 +335,9 @@ def check_lesson(row: dict, loc: str, report: Report) -> bool:
     return True
 
 
-def load_deck(csv_path: Path, model, report: Report, seen: dict, seen_guids: dict, decks: dict):
+def load_deck(csv_path: Path, model, report: Report, seen: dict, seen_guids: dict, decks: dict,
+              index: list | None = None):
+    """Load words; append (lesson, word, pinyin, definition) to `index` for components."""
     media = set()
     deck_tag = base_stem(csv_path).replace(" ", "_")
 
@@ -342,7 +414,106 @@ def load_deck(csv_path: Path, model, report: Report, seen: dict, seen_guids: dic
                 # GUID from an Anki export keeps matching your existing notes
                 guid=row["Guid"] or genanki.guid_for(GUID_NAMESPACE, word),
             ))
+            if index is not None:
+                index.append((int(row["Lesson"] or 0), word, row["WordPinyin"],
+                              row["Definition"].split("\n")[0]))
     return media
+
+
+def example_for(char: str, index: list):
+    """Best word showing a character: the character alone, else the earliest word with it."""
+    hits = [w for w in index if char in w[1]]
+    if not hits:
+        return None
+    return min(hits, key=lambda w: (w[1] != char, w[0] or 99, len(w[1])))
+
+
+def render_examples(chars: list, index: list) -> str:
+    items = []
+    for ch in chars:
+        lesson, word, pinyin, definition = example_for(ch, index)
+        e = html.escape
+        word_part = "" if word == ch else f' <span class="ex-word hanzi">{e(word)}</span>'
+        items.append(
+            f'<li><span class="ex-char hanzi">{e(ch)}</span>{word_part}'
+            f' <span class="pinyin">{e(pinyin)}</span> — {e(definition)}</li>')
+    return '<ul class="examples">' + "".join(items) + "</ul>"
+
+
+def load_components(csv_path: Path, model, report: Report, seen: dict, seen_guids: dict,
+                    decks: dict, index: list):
+    deck_tag = base_stem(csv_path).replace(" ", "_")
+    with csv_path.open(encoding="utf-8-sig", newline="") as f:
+        reader = sniff_reader(f)
+        header = [h.strip() for h in (reader.fieldnames or [])]
+        reader.fieldnames = header
+        unknown = [c for c in header if c not in COMPONENT_COLUMNS]
+        if "Component" not in header:
+            report.errors.append(f"{csv_path.name}: missing required column: Component")
+            return
+        if unknown:
+            report.warnings.append(f"{csv_path.name}: ignoring unknown column(s): {', '.join(unknown)}")
+
+        for line, row in enumerate(reader, start=2):
+            row = {k: (row.get(k) or "").strip() for k in COMPONENT_COLUMNS}
+            loc = report.where(csv_path, line)
+            if not any(row.values()):
+                continue
+            comp = row["Component"]
+            if not comp:
+                report.errors.append(f"{loc}: Component is required")
+                continue
+            if comp in seen:
+                report.errors.append(f"{loc}: duplicate component '{comp}' (first at {seen[comp]})")
+                continue
+            if row["Guid"] and row["Guid"] in seen_guids:
+                report.errors.append(f"{loc}: duplicate Guid '{row['Guid']}' (first at {seen_guids[row['Guid']]})")
+                continue
+            seen[comp] = loc
+            if row["Guid"]:
+                seen_guids[row["Guid"]] = loc
+            if row["Kangxi"] and not (row["Kangxi"].isdigit() and 1 <= int(row["Kangxi"]) <= 214):
+                report.errors.append(f"{loc}: Kangxi must be a radical number 1–214, got '{row['Kangxi']}'")
+                continue
+
+            if row["Type"] and row["Type"] not in COMPONENT_TYPES:
+                report.errors.append(f"{loc}: Type must be one of: {', '.join(COMPONENT_TYPES)}")
+                continue
+            roles = [r.strip() for r in row["Role"].split("/") if r.strip()]
+            if any(r not in COMPONENT_ROLES for r in roles):
+                report.errors.append(f"{loc}: Role must be 'znaczeniowy', 'fonetyczny' or both separated by '/'")
+                continue
+
+            chars = [c for c in row["Examples"] if HAN.search(c)]
+            missing = [c for c in chars if example_for(c, index) is None]
+            if missing:
+                report.errors.append(f"{loc}: example(s) {' '.join(missing)} not found in any word of the deck")
+                continue
+            if not chars:
+                report.warnings.append(f"{loc}: '{comp}' has no example characters")
+            # lesson: given, else the first lesson in which one of the examples appears
+            if not row["Lesson"] and chars:
+                row["Lesson"] = str(min(example_for(c, index)[0] for c in chars) or "")
+            if not check_lesson(row, loc, report):
+                continue
+
+            values = {f: html.escape(row[f], quote=False) for f in COMPONENT_FIELDS}
+            values["Kangxi"] = f"Klucz nr {row['Kangxi']}" if row["Kangxi"] else ""
+            # Role field carries labels: role(s) + character type
+            labels = [f"komponent {r}" for r in roles] + ([row["Type"]] if row["Type"] else [])
+            values["Role"] = "".join(f'<span class="badge">{html.escape(x)}</span>' for x in labels)
+            values["Examples"] = render_examples(chars, index) if chars else ""
+            fields = [values[f] for f in COMPONENT_FIELDS]
+            tags = ([deck_tag, "component"] + row["Tags"].replace(",", " ").split()
+                    + [f"rola::{r}" for r in roles]
+                    + ([f"rodzaj::{COMPONENT_TYPES[row['Type']]}"] if row["Type"] else [])
+                    + lesson_tag(row["Lesson"]))
+            get_deck(decks, subdeck_name(csv_path, row["Lesson"])).add_note(genanki.Note(
+                model=model,
+                fields=fields,
+                tags=tags,
+                guid=row["Guid"] or component_guid(comp),
+            ))
 
 
 def load_sentences(csv_path: Path, model, report: Report, seen: dict, seen_guids: dict, decks: dict):
@@ -405,7 +576,8 @@ def main() -> int:
                     help="store GUIDs of words that don't have one yet in the CSVs")
     args = ap.parse_args()
 
-    csv_files = sorted(DECKS_DIR.glob("*.csv"))
+    # words first: components link to them
+    csv_files = sorted(DECKS_DIR.glob("*.csv"), key=lambda p: (file_kind(p) != "words", p.name))
     if not csv_files:
         print("No CSV files in decks/", file=sys.stderr)
         return 1
@@ -416,21 +588,28 @@ def main() -> int:
                 print(f"  guid     {p.relative_to(ROOT)}: {word}")
 
     model, sentence_model = build_model(), build_sentence_model()
+    component_model = build_component_model()
     report = Report()
     seen_words: dict = {}
     seen_sentences: dict = {}
+    seen_components: dict = {}
     seen_guids: dict = {}
     packages: dict = {}  # base stem -> {"decks": {name: Deck}, "media": set(), "files": [...]}
     for p in csv_files:
-        pkg = packages.setdefault(base_stem(p), {"decks": {}, "media": set(), "files": []})
+        pkg = packages.setdefault(base_stem(p), {"decks": {}, "media": set(), "files": [], "index": []})
         pkg["files"].append(p.name)
-        if is_sentences_file(p):
+        kind = file_kind(p)
+        if kind == "sentences":
             load_sentences(p, sentence_model, report, seen_sentences, seen_guids, pkg["decks"])
+        elif kind == "components":
+            load_components(p, component_model, report, seen_components, seen_guids, pkg["decks"],
+                            pkg["index"])
         else:
-            pkg["media"] |= load_deck(p, model, report, seen_words, seen_guids, pkg["decks"])
-    orphans = [s for s, pkg in packages.items() if not (DECKS_DIR / f"{s}.csv").exists()]
-    for s in orphans:
-        report.warnings.append(f"decks/{s}{SENTENCES_SUFFIX}.csv has no matching decks/{s}.csv")
+            pkg["media"] |= load_deck(p, model, report, seen_words, seen_guids, pkg["decks"],
+                                      pkg["index"])
+    for s, pkg in packages.items():
+        if not (DECKS_DIR / f"{s}.csv").exists():
+            report.warnings.append(f"{', '.join(pkg['files'])}: no matching decks/{s}.csv")
 
     GHA = "GITHUB_ACTIONS" in os.environ
     for msg in report.filled:
