@@ -144,3 +144,54 @@ Tworzy pytania typu „tak/nie”, dodawana na końcu zdania.",吗,ma,你好吗�
 6,Pływać,游泳,yóuyǒng,你妈妈会游泳吗？,Nǐ māma huì yóuyǒng ma?,Czy twoja mama umie pływać?,,20261118 pos::verb,KSP.vMx<!@
 6,Ale,可是,kěshì,我会说汉语，可是不会写汉字。,"Wǒ huì shuō Hànyǔ, kěshì bú huì xiě hànzì.","Umiem mówić po chińsku, ale nie umiem pisać znaków.",,20261118 pos::conjunction,KZ>uk4G1x_
 6,Przepraszam,对不起,duì bu qǐ,对不起，我不会说汉语。,"Duì bu qǐ, wǒ bú huì shuō Hànyǔ.","Przepraszam, nie umiem mówić po chińsku.",,20261118 pos::phrase,e{jlm9E`7c
+6,Język angielski,英语,Yīngyǔ,我会说英语。,Wǒ huì shuō Yīngyǔ.,Umiem mówić po angielsku.,,20261126 pos::noun extra,wld_uQkE8_
+6,Język polski,波兰语,Bōlányǔ,你会说波兰语吗？,Nǐ huì shuō Bōlányǔ ma?,Czy umiesz mówić po polsku?,,20261126 pos::noun extra,AhhDDCuA(:
+6,Język francuski,法语,Fǎyǔ,我会说一点儿法语。,Wǒ huì shuō yìdiǎnr Fǎyǔ.,Umiem mówić trochę po francusku.,,20261126 pos::noun extra,rk;#4~lhm6
+6,Język japoński,日语,Rìyǔ,他会说日语，可是不会写。,"Tā huì shuō Rìyǔ, kěshì bú huì xiě.","On umie mówić po japońsku, ale nie umie pisać.",,20261126 pos::noun extra,M9L0e^RoWZ
+6,Język rosyjski,俄语,Éyǔ,我不会说俄语。,Wǒ bú huì shuō Éyǔ.,Nie umiem mówić po rosyjsku.,,20261126 pos::noun extra,s#XSLh72X/
+6,Język niemiecki,德语,Déyǔ,她是我的德语老师。,Tā shì wǒ de Déyǔ lǎoshī.,Ona jest moją nauczycielką niemieckiego.,,20261126 pos::noun extra,"DZ6kgO4,`e"
+6,Język wietnamski,越南语,Yuènányǔ,你会说越南语吗？,Nǐ huì shuō Yuènányǔ ma?,Czy umiesz mówić po wietnamsku?,,20261126 pos::noun extra,"B!h9o{O)C,"
+6,Język mandaryński (standardowy chiński),普通话,pǔtōnghuà,你会说普通话吗？,Nǐ huì shuō pǔtōnghuà ma?,Czy umiesz mówić po mandaryńsku?,,20261126 pos::noun extra,e4tCJx!%Z6
+6,Język obcy,外语,wàiyǔ,你会说外语吗？,Nǐ huì shuō wàiyǔ ma?,Czy umiesz mówić w jakimś języku obcym?,,20261126 pos::noun extra,neUi12cllo
+7,Dzień,天,tiān,一个星期有七天。,Yí gè xīngqī yǒu qī tiān.,Tydzień ma siedem dni.,,20261126 pos::noun pos::measure-word,J)O^CHBj#c
+7,Wczoraj,昨天,zuótiān,昨天是八月三十一号，星期二。,"Zuótiān shì bāyuè sānshíyī hào, xīngqī'èr.","Wczoraj był 31 sierpnia, wtorek.",,20261126 pos::noun,M~TKs$8.[D
+7,Dzisiaj,今天,jīntiān,请问，今天几号？,"Qǐngwèn, jīntiān jǐ hào?","Przepraszam, którego jest dzisiaj?",,20261126 pos::noun,iA+_+o;W]0
+7,Jutro,明天,míngtiān,明天是九月二号，星期四。,"Míngtiān shì jiǔyuè èr hào, xīngqīsì.","Jutro jest 2 września, czwartek.",,20261126 pos::noun,c1!~O`PB+E
+7,Tydzień,星期,xīngqī,我星期六去学校。,Wǒ xīngqīliù qù xuéxiào.,W sobotę idę do szkoły.,,20261126 pos::noun,yE%4s(#3Tz
+7,Który dzień tygodnia,星期几,xīngqījǐ,今天星期几？,Jīntiān xīngqījǐ?,Jaki jest dzisiaj dzień tygodnia?,,20261126 pos::phrase,sWb%*TFyRT
+7,Miesiąc,月,yuè,一年有十二个月。,Yì nián yǒu shí'èr gè yuè.,Rok ma dwanaście miesięcy.,,20261126 pos::noun,Fhvn.$7D^R
+7,Który miesiąc,几月,jǐyuè,昨天是几月几号？,Zuótiān shì jǐ yuè jǐ hào?,Którego było wczoraj?,,20261126 pos::phrase,c$YP*_XIz3
+7,Dzień miesiąca (w dacie),号,hào,今天是九月一号。,Jīntiān shì jiǔyuè yī hào.,Dzisiaj jest 1 września.,,20261126 pos::noun,j2e?x/)E?4
+7,Który dzień (miesiąca),几号,jǐhào,你的生日是几号？,Nǐ de shēngrì shì jǐ hào?,Kiedy masz urodziny?,,20261126 pos::phrase,PR#mG{7#5:
+7,Urodziny,生日,shēngrì,我的生日是三月一号。,Wǒ de shēngrì shì sānyuè yī hào.,Moje urodziny są 1 marca.,,20261126 pos::noun,k|~Jcz&[G$
+7,Prosić; zapraszać,请,qǐng,我请你吃中国菜。,Wǒ qǐng nǐ chī Zhōngguó cài.,Zapraszam cię na chińskie jedzenie.,,20261126 pos::verb,tB*8fi[[x-
+7,Pytać,问,wèn,我去问老师。,Wǒ qù wèn lǎoshī.,Pójdę zapytać nauczyciela.,,20261126 pos::verb,Ml8~[f-mR=
+7,"Przepraszam, czy mogę zapytać…",请问,qǐngwèn,请问，今天星期几？,"Qǐngwèn, jīntiān xīngqījǐ?","Przepraszam, jaki jest dzisiaj dzień tygodnia?",,20261126 pos::phrase,Jr~gM/_a?3
+7,Pekin,北京,Běijīng,北京很大。,Běijīng hěn dà.,Pekin jest duży.,,20261126 pos::noun,NbS^N7ko[8
+7,Szkoła,学校,xuéxiào,我去学校看书。,Wǒ qù xuéxiào kàn shū.,Idę do szkoły poczytać.,,20261126 pos::noun,p^iK+;)o;r
+7,Firma,公司,gōngsī,我爸爸去公司。,Wǒ bàba qù gōngsī.,Mój tata idzie do firmy.,,20261126 pos::noun,KcH@pLpyR5
+7,Iść; jechać (dokądś),去,qù,你几号去中国？,Nǐ jǐ hào qù Zhōngguó?,Którego jedziesz do Chin?,,20261126 pos::verb,JPBzac@qOk
+7,Przychodzić; przyjeżdżać,来,lái,你几号来北京？,Nǐ jǐ hào lái Běijīng?,Którego przyjeżdżasz do Pekinu?,,20261126 pos::verb,PL|@ey:trL
+7,Książka,书,shū,这是我的书。,Zhè shì wǒ de shū.,To jest moja książka.,,20261126 pos::noun,nOqE!P{1;s
+7,Patrzeć; oglądać; czytać,看,kàn,我喜欢看书。,Wǒ xǐhuan kàn shū.,Lubię czytać książki.,,20261126 pos::verb,eT|93w=[/i
+7,Czytać książkę,看书,kànshū,你去学校看书吗？,Nǐ qù xuéxiào kàn shū ma?,Czy idziesz do szkoły poczytać?,,20261126 pos::verb,c}|v75*gLm
+7,Poniedziałek,星期一,xīngqīyī,,,,,20261126 pos::noun extra,u8ktmwxvN#
+7,Wtorek,星期二,xīngqī'èr,,,,,20261126 pos::noun extra,qI^}qP+c7*
+7,Środa,星期三,xīngqīsān,,,,,20261126 pos::noun extra,mu1kIQpZ@#
+7,Czwartek,星期四,xīngqīsì,,,,,20261126 pos::noun extra,uw2Y<u$B^q
+7,Piątek,星期五,xīngqīwǔ,,,,,20261126 pos::noun extra,xFf}4.0KJA
+7,Sobota,星期六,xīngqīliù,,,,,20261126 pos::noun extra,N:Ys(v{(:/
+7,Niedziela (potocznie),星期天,xīngqītiān,,,,,20261126 pos::noun extra,y(amyCY4Q#
+7,"Niedziela (formalnie, w piśmie)",星期日,xīngqīrì,,,,,20261126 pos::noun extra,C&-hW9`v)T
+7,Styczeń,一月,yīyuè,,,,,20261126 pos::noun extra,"l>:,eUWOa?"
+7,Luty,二月,èryuè,,,,,20261126 pos::noun extra,g%C?Yp&$l<
+7,Marzec,三月,sānyuè,,,,,20261126 pos::noun extra,dYAx)Tj1a0
+7,Kwiecień,四月,sìyuè,,,,,20261126 pos::noun extra,"O{FMJ`vOB,"
+7,Maj,五月,wǔyuè,,,,,20261126 pos::noun extra,MxrAY{zVC}
+7,Czerwiec,六月,liùyuè,,,,,20261126 pos::noun extra,sOZwnI>;$4
+7,Lipiec,七月,qīyuè,,,,,20261126 pos::noun extra,E#?P<VK)UW
+7,Sierpień,八月,bāyuè,,,,,20261126 pos::noun extra,ix&3IOgO/^
+7,Wrzesień,九月,jiǔyuè,,,,,20261126 pos::noun extra,pf^W4E%IR`
+7,Październik,十月,shíyuè,,,,,20261126 pos::noun extra,sa@E3;#-3a
+7,Listopad,十一月,shíyīyuè,,,,,20261126 pos::noun extra,M7m/cIA)pp
+7,Grudzień,十二月,shí'èryuè,,,,,20261126 pos::noun extra,xp>e/[y[j(
